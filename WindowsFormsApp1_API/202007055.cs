@@ -18,7 +18,6 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorB()
         { 
-
             label10.Text = "김윤석";
 
         }
