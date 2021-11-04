@@ -17,6 +17,8 @@ namespace WindowsFormsApp1_API
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //Application.Run(new 202007055());
+            //Application.Run(new 201807023());
         }
     }
 }
