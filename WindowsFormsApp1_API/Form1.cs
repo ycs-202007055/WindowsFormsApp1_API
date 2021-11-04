@@ -27,6 +27,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
             ConstructorA();
             ConstructorB();
+            //테스트
         }
 
  
