@@ -48,8 +48,11 @@ namespace WindowsFormsApp1_API
         public void onReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
             //label7.
-            OnReceiveA();
-            OnReceiveB();
+        }
+
+        private void axKHOpenAPI1_OnReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        {
+
         }
 
 
