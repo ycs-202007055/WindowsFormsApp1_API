@@ -67,7 +67,7 @@ namespace WindowsFormsApp1_API
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
             this.axKHOpenAPI1.Size = new System.Drawing.Size(100, 50);
             this.axKHOpenAPI1.TabIndex = 0;
-            this.axKHOpenAPI1.OnReceiveTrData += new AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEventHandler(this.axKHOpenAPI1_OnReceiveTrData);
+            
             // 
             // label1
             // 
@@ -78,7 +78,6 @@ namespace WindowsFormsApp1_API
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "계좌번호";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -89,7 +88,6 @@ namespace WindowsFormsApp1_API
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "총매입금액";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // chart1
             // 
@@ -142,7 +140,6 @@ namespace WindowsFormsApp1_API
             this.label4.Size = new System.Drawing.Size(69, 12);
             this.label4.TabIndex = 13;
             this.label4.Text = "당일 손익률";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -203,7 +200,6 @@ namespace WindowsFormsApp1_API
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(145, 65);
             this.tableLayoutPanel1.TabIndex = 17;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label7
             // 
@@ -213,7 +209,6 @@ namespace WindowsFormsApp1_API
             this.label7.Size = new System.Drawing.Size(38, 12);
             this.label7.TabIndex = 17;
             this.label7.Text = "label7";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -256,7 +251,6 @@ namespace WindowsFormsApp1_API
             this.Name = "Form1";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
