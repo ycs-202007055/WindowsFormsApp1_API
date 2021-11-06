@@ -18,8 +18,7 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorB()
         { 
-            label10.Text = "김윤석";
-
+            label10.Text = "test";
         }
 
         void OnReceiveB()
