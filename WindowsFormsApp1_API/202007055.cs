@@ -17,8 +17,8 @@ namespace WindowsFormsApp1_API
     public partial class Form1 : Form
     {
         void ConstructorB()
-        {
-            label10.Text = "fdsfds";
+        { 
+            label10.Text = "test";
         }
 
         void OnReceiveB()
