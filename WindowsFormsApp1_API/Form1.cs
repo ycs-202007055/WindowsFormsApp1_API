@@ -28,7 +28,7 @@ namespace WindowsFormsApp1_API
 
             axKHOpenAPI1.OnEventConnect += OnEventConnect;
             axKHOpenAPI1.CommConnect();
-            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;//????~~~테스트16
+            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;//????~~~테스트17
             
             
         }
