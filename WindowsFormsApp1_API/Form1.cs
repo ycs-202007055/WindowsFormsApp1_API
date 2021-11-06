@@ -25,10 +25,10 @@ namespace WindowsFormsApp1_API
             ConstructorA();
             ConstructorB();
 
-
+            // CousntructorB로 옮기기
             axKHOpenAPI1.OnEventConnect += OnEventConnect;
             axKHOpenAPI1.CommConnect();
-            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;//????~~~테스트21
+            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
             
             
         }
@@ -37,6 +37,10 @@ namespace WindowsFormsApp1_API
 
         public void OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
+            OnEventConnectA();
+            //OnEventConnectB();
+            
+            //OnEventConnectB 함수 만들고 옮기기
             label2.Text = axKHOpenAPI1.GetLoginInfo("ACCLIST");
             axKHOpenAPI1.SetInputValue("계좌번호",label2.Text);
             axKHOpenAPI1.SetInputValue("비밀번호", "");
@@ -47,13 +51,10 @@ namespace WindowsFormsApp1_API
 
         public void onReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            //label7.
+            OnReceiveA();
+            OnReceiveB();
         }
 
-        private void axKHOpenAPI1_OnReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
-        {
-
-        }
 
 
     }
