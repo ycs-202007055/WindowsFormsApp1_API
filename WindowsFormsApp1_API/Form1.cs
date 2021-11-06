@@ -30,7 +30,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
             
-            
+            //마지막 테스트
         }
 
  
