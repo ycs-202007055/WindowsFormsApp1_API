@@ -18,7 +18,7 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorA()
         {
-  
+            //테스트
         }
 
         void OnReceiveA()
