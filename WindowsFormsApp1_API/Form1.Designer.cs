@@ -29,13 +29,14 @@ namespace WindowsFormsApp1_API
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,10 +49,20 @@ namespace WindowsFormsApp1_API
             this.로그인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.검색버튼 = new System.Windows.Forms.Button();
+            this.검색창 = new System.Windows.Forms.TextBox();
+            this.종목리스트 = new System.Windows.Forms.TableLayoutPanel();
+            this.종목명 = new System.Windows.Forms.Label();
+            this.고가 = new System.Windows.Forms.Label();
+            this.저가 = new System.Windows.Forms.Label();
+            this.전일대비 = new System.Windows.Forms.Label();
+            this.거래량 = new System.Windows.Forms.Label();
+            this.거래대금 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -67,7 +78,6 @@ namespace WindowsFormsApp1_API
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
             this.axKHOpenAPI1.Size = new System.Drawing.Size(100, 50);
             this.axKHOpenAPI1.TabIndex = 0;
-            
             // 
             // label1
             // 
@@ -92,16 +102,16 @@ namespace WindowsFormsApp1_API
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chart1.Legends.Add(legend9);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(1190, 12);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart1.Series.Add(series9);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(702, 507);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
@@ -109,16 +119,16 @@ namespace WindowsFormsApp1_API
             // chart2
             // 
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.chart2.Legends.Add(legend10);
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
             this.chart2.Location = new System.Drawing.Point(1190, 525);
             this.chart2.Name = "chart2";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.chart2.Series.Add(series10);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart2.Series.Add(series6);
             this.chart2.Size = new System.Drawing.Size(702, 176);
             this.chart2.TabIndex = 11;
             this.chart2.Text = "chart2";
@@ -201,6 +211,15 @@ namespace WindowsFormsApp1_API
             this.tableLayoutPanel1.Size = new System.Drawing.Size(145, 65);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(78, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 12);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "label10";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -228,20 +247,113 @@ namespace WindowsFormsApp1_API
             this.label9.TabIndex = 19;
             this.label9.Text = "label9";
             // 
-            // label10
+            // imageList1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(78, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 12);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "label10";
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // 검색버튼
+            // 
+            this.검색버튼.Location = new System.Drawing.Point(852, 34);
+            this.검색버튼.Name = "검색버튼";
+            this.검색버튼.Size = new System.Drawing.Size(75, 23);
+            this.검색버튼.TabIndex = 18;
+            this.검색버튼.Text = "검색";
+            this.검색버튼.UseVisualStyleBackColor = true;
+            // 
+            // 검색창
+            // 
+            this.검색창.Location = new System.Drawing.Point(746, 36);
+            this.검색창.Name = "검색창";
+            this.검색창.Size = new System.Drawing.Size(100, 21);
+            this.검색창.TabIndex = 19;
+            // 
+            // 종목리스트
+            // 
+            this.종목리스트.ColumnCount = 2;
+            this.종목리스트.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.종목리스트.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.종목리스트.Location = new System.Drawing.Point(746, 75);
+            this.종목리스트.Name = "종목리스트";
+            this.종목리스트.RowCount = 2;
+            this.종목리스트.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.종목리스트.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.종목리스트.Size = new System.Drawing.Size(200, 100);
+            this.종목리스트.TabIndex = 20;
+            // 
+            // 종목명
+            // 
+            this.종목명.AutoSize = true;
+            this.종목명.Location = new System.Drawing.Point(167, 121);
+            this.종목명.Name = "종목명";
+            this.종목명.Size = new System.Drawing.Size(41, 12);
+            this.종목명.TabIndex = 21;
+            this.종목명.Text = "종목명";
+            this.종목명.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // 고가
+            // 
+            this.고가.AutoSize = true;
+            this.고가.Location = new System.Drawing.Point(265, 121);
+            this.고가.Name = "고가";
+            this.고가.Size = new System.Drawing.Size(29, 12);
+            this.고가.TabIndex = 21;
+            this.고가.Text = "고가";
+            // 
+            // 저가
+            // 
+            this.저가.AutoSize = true;
+            this.저가.Location = new System.Drawing.Point(265, 163);
+            this.저가.Name = "저가";
+            this.저가.Size = new System.Drawing.Size(29, 12);
+            this.저가.TabIndex = 21;
+            this.저가.Text = "저가";
+            // 
+            // 전일대비
+            // 
+            this.전일대비.AutoSize = true;
+            this.전일대비.Location = new System.Drawing.Point(167, 153);
+            this.전일대비.Name = "전일대비";
+            this.전일대비.Size = new System.Drawing.Size(53, 12);
+            this.전일대비.TabIndex = 21;
+            this.전일대비.Text = "전일대비";
+            this.전일대비.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // 거래량
+            // 
+            this.거래량.AutoSize = true;
+            this.거래량.Location = new System.Drawing.Point(348, 121);
+            this.거래량.Name = "거래량";
+            this.거래량.Size = new System.Drawing.Size(41, 12);
+            this.거래량.TabIndex = 21;
+            this.거래량.Text = "거래량";
+            this.거래량.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // 거래대금
+            // 
+            this.거래대금.AutoSize = true;
+            this.거래대금.Location = new System.Drawing.Point(348, 163);
+            this.거래대금.Name = "거래대금";
+            this.거래대금.Size = new System.Drawing.Size(53, 12);
+            this.거래대금.TabIndex = 21;
+            this.거래대금.Text = "거래대금";
+            this.거래대금.Click += new System.EventHandler(this.label11_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.저가);
+            this.Controls.Add(this.고가);
+            this.Controls.Add(this.거래대금);
+            this.Controls.Add(this.거래량);
+            this.Controls.Add(this.전일대비);
+            this.Controls.Add(this.종목명);
+            this.Controls.Add(this.종목리스트);
+            this.Controls.Add(this.검색창);
+            this.Controls.Add(this.검색버튼);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
@@ -251,6 +363,7 @@ namespace WindowsFormsApp1_API
             this.Name = "Form1";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -281,6 +394,16 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button 검색버튼;
+        private System.Windows.Forms.TextBox 검색창;
+        private System.Windows.Forms.TableLayoutPanel 종목리스트;
+        private System.Windows.Forms.Label 종목명;
+        private System.Windows.Forms.Label 고가;
+        private System.Windows.Forms.Label 저가;
+        private System.Windows.Forms.Label 전일대비;
+        private System.Windows.Forms.Label 거래량;
+        private System.Windows.Forms.Label 거래대금;
     }
 }
 

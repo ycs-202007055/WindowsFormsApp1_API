@@ -18,6 +18,7 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorA()
         {
+            고가.Text = "ㅇ";
         }
 
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
