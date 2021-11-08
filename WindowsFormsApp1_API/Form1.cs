@@ -16,27 +16,18 @@ namespace WindowsFormsApp1_API
 {
     public partial class Form1 : Form
     {
-        
-
 
         public Form1()
         {
             InitializeComponent();
             ConstructorA();
             ConstructorB();
-
-            // CousntructorB로 옮기기
-            axKHOpenAPI1.OnEventConnect += OnEventConnect;
-            axKHOpenAPI1.CommConnect();
-            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
-
-            //마지막 테스트
         }
 
         public void OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
-            OnEventConnectA();
-            //OnEventConnectB();
+            OnEventConnectA(sender,e);
+            OnEventConnectB(sender,e);
 
         }
 
@@ -44,8 +35,8 @@ namespace WindowsFormsApp1_API
 
         public void onReceiveTrData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            OnReceiveA();
-            OnReceiveB();
+            OnReceiveA(sender,e);
+            OnReceiveB(sender,e);
         }
 
 

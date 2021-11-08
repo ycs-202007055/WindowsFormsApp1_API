@@ -18,15 +18,14 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorA()
         {
-            //테스트
         }
 
-        void OnReceiveA()
+        void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
 
         }
 
-        void OnEventConnectA()
+        void OnEventConnectA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
 
         }

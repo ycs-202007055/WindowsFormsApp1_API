@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1_API
 {
-    public partial class Form1 : Form1
+    public partial class Form1 : Form
     {
         void ConstructorB()
         { 
@@ -26,8 +26,7 @@ namespace WindowsFormsApp1_API
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
-            
-            //OnEventConnectB 함수 만들고 옮기기
+
             label2.Text = axKHOpenAPI1.GetLoginInfo("ACCLIST");
             axKHOpenAPI1.SetInputValue("계좌번호", label2.Text);
             axKHOpenAPI1.SetInputValue("비밀번호", "");
@@ -39,7 +38,7 @@ namespace WindowsFormsApp1_API
 
 
 
-        void OnReceiveB()
+        void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
 
         }
