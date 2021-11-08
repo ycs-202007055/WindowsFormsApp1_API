@@ -14,12 +14,30 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1_API
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form1
     {
         void ConstructorB()
         { 
             label10.Text = "test";
+            axKHOpenAPI1.OnEventConnect += OnEventConnect;
+            axKHOpenAPI1.CommConnect();
+            axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
         }
+
+        public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
+        {
+            
+            //OnEventConnectB 함수 만들고 옮기기
+            label2.Text = axKHOpenAPI1.GetLoginInfo("ACCLIST");
+            axKHOpenAPI1.SetInputValue("계좌번호", label2.Text);
+            axKHOpenAPI1.SetInputValue("비밀번호", "");
+            axKHOpenAPI1.SetInputValue("비밀번호입력매체구분", "00");
+            axKHOpenAPI1.SetInputValue("조회구분", "2");
+            axKHOpenAPI1.CommRqData("RQName", "opw00001", 0, "0000");
+        }
+
+
+
 
         void OnReceiveB()
         {
