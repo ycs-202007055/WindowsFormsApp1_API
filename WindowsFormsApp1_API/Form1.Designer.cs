@@ -39,7 +39,6 @@ namespace WindowsFormsApp1_API
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@ namespace WindowsFormsApp1_API
             this.전일대비 = new System.Windows.Forms.Label();
             this.거래량 = new System.Windows.Forms.Label();
             this.거래대금 = new System.Windows.Forms.Label();
+            this.계좌번호콤보 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -91,16 +91,6 @@ namespace WindowsFormsApp1_API
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "계좌번호";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 9F);
-            this.label2.Location = new System.Drawing.Point(78, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "총매입금액";
             // 
             // chart1
             // 
@@ -139,7 +129,7 @@ namespace WindowsFormsApp1_API
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 12);
+            this.label3.Location = new System.Drawing.Point(3, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 12);
             this.label3.TabIndex = 12;
@@ -148,7 +138,7 @@ namespace WindowsFormsApp1_API
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 24);
+            this.label4.Location = new System.Drawing.Point(3, 38);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 12);
             this.label4.TabIndex = 13;
@@ -157,7 +147,7 @@ namespace WindowsFormsApp1_API
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 36);
+            this.label5.Location = new System.Drawing.Point(3, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 14;
@@ -182,7 +172,7 @@ namespace WindowsFormsApp1_API
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 48);
+            this.label6.Location = new System.Drawing.Point(3, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 16;
@@ -196,13 +186,13 @@ namespace WindowsFormsApp1_API
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label10, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label7, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label9, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.계좌번호콤보, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 27);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -217,7 +207,7 @@ namespace WindowsFormsApp1_API
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(78, 48);
+            this.label10.Location = new System.Drawing.Point(78, 62);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 12);
             this.label10.TabIndex = 20;
@@ -226,7 +216,7 @@ namespace WindowsFormsApp1_API
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 12);
+            this.label7.Location = new System.Drawing.Point(78, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 12);
             this.label7.TabIndex = 17;
@@ -235,7 +225,7 @@ namespace WindowsFormsApp1_API
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(78, 24);
+            this.label8.Location = new System.Drawing.Point(78, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 12);
             this.label8.TabIndex = 18;
@@ -244,7 +234,7 @@ namespace WindowsFormsApp1_API
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(78, 36);
+            this.label9.Location = new System.Drawing.Point(78, 50);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 12);
             this.label9.TabIndex = 19;
@@ -363,6 +353,14 @@ namespace WindowsFormsApp1_API
             this.거래대금.Text = "거래대금";
             this.거래대금.Click += new System.EventHandler(this.label11_Click);
             // 
+            // 계좌번호콤보
+            // 
+            this.계좌번호콤보.FormattingEnabled = true;
+            this.계좌번호콤보.Location = new System.Drawing.Point(78, 3);
+            this.계좌번호콤보.Name = "계좌번호콤보";
+            this.계좌번호콤보.Size = new System.Drawing.Size(67, 20);
+            this.계좌번호콤보.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -405,7 +403,6 @@ namespace WindowsFormsApp1_API
 
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Label label3;
@@ -431,6 +428,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label 거래대금;
         private System.Windows.Forms.Label id1;
         private System.Windows.Forms.Label id2;
+        private System.Windows.Forms.ComboBox 계좌번호콤보;
     }
 }
 
