@@ -30,17 +30,12 @@ namespace WindowsFormsApp1_API
             String[] Acount = axKHOpenAPI1.GetLoginInfo("ACCLIST").Split(';');
             int i = Acount.Length;
 
-            while (true)
+            while (i<=0)
             {
-
-
-
-
-
-
-                if (i < 0) break;
+                계좌번호콤보.Items.Add(Acount[i-1]);   
+                i--;
             }
-            axKHOpenAPI1.SetInputValue("계좌번호", label2.Text);
+            axKHOpenAPI1.SetInputValue("계좌번호", 계좌번호콤보.Text);
             axKHOpenAPI1.SetInputValue("비밀번호", "");
             axKHOpenAPI1.SetInputValue("비밀번호입력매체구분", "00");
             axKHOpenAPI1.SetInputValue("조회구분", "2");
