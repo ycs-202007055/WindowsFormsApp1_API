@@ -18,7 +18,8 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorA()
         {
-            
+            고가.ForeColor = Color.Red;
+            저가.ForeColor = Color.Blue;
         }
 
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
@@ -31,12 +32,16 @@ namespace WindowsFormsApp1_API
                 고가.Text = string.Format("{0:#,##0}",HighPrice);
 
                 int LowPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "저가"));
-                저가.Text = string.Format("{0:#,##0}", LowPrice);
+                저가.Text = string.Format("{0:#,##0}", Math.Abs(LowPrice));
 
                 int Trading_Volume = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "거래량"));
                 거래량.Text = string.Format("{0:#,##0}", Trading_Volume);
 
-                전일대비.Text = string.Format("{0:0.0}%",axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "전일대비"));
+                int DaytoDay = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "전일대비"));
+                if (DaytoDay > 0) 전일대비.ForeColor = Color.Red;
+                else if (DaytoDay < 0) 전일대비.ForeColor = Color.Blue;
+                else 전일대비.ForeColor = Color.Black;
+                전일대비.Text = string.Format("{0:#,##0}",Math.Abs(DaytoDay));
 
 
             }
