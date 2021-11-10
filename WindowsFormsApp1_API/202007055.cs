@@ -50,8 +50,8 @@ namespace WindowsFormsApp1_API
         {
 
         }
-
-        public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        
+        public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         { 
         
         
