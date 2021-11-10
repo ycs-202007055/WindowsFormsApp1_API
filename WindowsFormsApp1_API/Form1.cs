@@ -23,6 +23,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.OnReceiveRealData += OnReceiveRealData;
             ConstructorA();
             ConstructorB();
+
         }
 
         public void OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -45,8 +46,11 @@ namespace WindowsFormsApp1_API
             OnReceiveRealDataA(sender, e);
             OnReceiveRealDataB(sender, e);
         }
-          
 
-
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // comboBox2_SelectedIndexChangedA(object, e);
+           // comboBox2_SelectedIndexChangedB(object, e);
+        }
     }
 }
