@@ -30,12 +30,12 @@ namespace WindowsFormsApp1_API
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -64,29 +64,37 @@ namespace WindowsFormsApp1_API
             this.거래량 = new System.Windows.Forms.Label();
             this.거래대금 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.등락률 = new System.Windows.Forms.Label();
+            this.체결강도 = new System.Windows.Forms.Label();
+            this.현재가 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.매수_수량 = new System.Windows.Forms.NumericUpDown();
-            this.매수_가격 = new System.Windows.Forms.NumericUpDown();
-            this.매수_현재가 = new System.Windows.Forms.CheckBox();
-            this.매수_시장가 = new System.Windows.Forms.CheckBox();
-            this.매수_주 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.매수_매수버튼 = new System.Windows.Forms.Button();
-            this.매도_매도버튼 = new System.Windows.Forms.Button();
-            this.매도_주 = new System.Windows.Forms.Button();
-            this.매도_시장가 = new System.Windows.Forms.CheckBox();
-            this.매도_현재가 = new System.Windows.Forms.CheckBox();
-            this.매도_가격 = new System.Windows.Forms.NumericUpDown();
-            this.매도_수량 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.현재가 = new System.Windows.Forms.Label();
-            this.체결강도 = new System.Windows.Forms.Label();
-            this.전일대비_퍼센트 = new System.Windows.Forms.Label();
+            this.매수_매수버튼 = new System.Windows.Forms.Button();
+            this.매수_주 = new System.Windows.Forms.Button();
+            this.매수_시장가 = new System.Windows.Forms.CheckBox();
+            this.매수_현재가 = new System.Windows.Forms.CheckBox();
+            this.매수_가격 = new System.Windows.Forms.NumericUpDown();
+            this.매수_수량 = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.매도_매도버튼 = new System.Windows.Forms.Button();
+            this.매도_가격 = new System.Windows.Forms.NumericUpDown();
+            this.매도_주 = new System.Windows.Forms.Button();
+            this.매도_수량 = new System.Windows.Forms.NumericUpDown();
+            this.매도_시장가 = new System.Windows.Forms.CheckBox();
+            this.매도_현재가 = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -96,9 +104,9 @@ namespace WindowsFormsApp1_API
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.매수_수량)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.매수_가격)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.매수_수량)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.매도_가격)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.매도_수량)).BeginInit();
             this.SuspendLayout();
@@ -130,16 +138,16 @@ namespace WindowsFormsApp1_API
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(426, 27);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(909, 469);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
@@ -147,16 +155,16 @@ namespace WindowsFormsApp1_API
             // chart2
             // 
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea8.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart2.Legends.Add(legend8);
             this.chart2.Location = new System.Drawing.Point(426, 493);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart2.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart2.Series.Add(series8);
             this.chart2.Size = new System.Drawing.Size(909, 138);
             this.chart2.TabIndex = 11;
             this.chart2.Text = "chart2";
@@ -371,7 +379,7 @@ namespace WindowsFormsApp1_API
             // 종목명
             // 
             this.종목명.AutoSize = true;
-            this.종목명.Location = new System.Drawing.Point(13, 100);
+            this.종목명.Location = new System.Drawing.Point(95, 32);
             this.종목명.Name = "종목명";
             this.종목명.Size = new System.Drawing.Size(41, 12);
             this.종목명.TabIndex = 21;
@@ -380,7 +388,7 @@ namespace WindowsFormsApp1_API
             // 고가
             // 
             this.고가.AutoSize = true;
-            this.고가.Location = new System.Drawing.Point(111, 100);
+            this.고가.Location = new System.Drawing.Point(194, 112);
             this.고가.Name = "고가";
             this.고가.Size = new System.Drawing.Size(29, 12);
             this.고가.TabIndex = 21;
@@ -389,7 +397,7 @@ namespace WindowsFormsApp1_API
             // 저가
             // 
             this.저가.AutoSize = true;
-            this.저가.Location = new System.Drawing.Point(111, 142);
+            this.저가.Location = new System.Drawing.Point(66, 180);
             this.저가.Name = "저가";
             this.저가.Size = new System.Drawing.Size(29, 12);
             this.저가.TabIndex = 21;
@@ -398,7 +406,7 @@ namespace WindowsFormsApp1_API
             // 전일대비
             // 
             this.전일대비.AutoSize = true;
-            this.전일대비.Location = new System.Drawing.Point(13, 132);
+            this.전일대비.Location = new System.Drawing.Point(54, 100);
             this.전일대비.Name = "전일대비";
             this.전일대비.Size = new System.Drawing.Size(53, 12);
             this.전일대비.TabIndex = 21;
@@ -407,7 +415,7 @@ namespace WindowsFormsApp1_API
             // 거래량
             // 
             this.거래량.AutoSize = true;
-            this.거래량.Location = new System.Drawing.Point(194, 100);
+            this.거래량.Location = new System.Drawing.Point(194, 93);
             this.거래량.Name = "거래량";
             this.거래량.Size = new System.Drawing.Size(41, 12);
             this.거래량.TabIndex = 21;
@@ -416,7 +424,7 @@ namespace WindowsFormsApp1_API
             // 거래대금
             // 
             this.거래대금.AutoSize = true;
-            this.거래대금.Location = new System.Drawing.Point(194, 142);
+            this.거래대금.Location = new System.Drawing.Point(203, 143);
             this.거래대금.Name = "거래대금";
             this.거래대금.Size = new System.Drawing.Size(53, 12);
             this.거래대금.TabIndex = 21;
@@ -424,7 +432,15 @@ namespace WindowsFormsApp1_API
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.전일대비_퍼센트);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.등락률);
             this.groupBox1.Controls.Add(this.체결강도);
             this.groupBox1.Controls.Add(this.현재가);
             this.groupBox1.Controls.Add(this.고가);
@@ -439,6 +455,87 @@ namespace WindowsFormsApp1_API
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(129, 180);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "체결강도";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(153, 222);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 12);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "등락률";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(144, 143);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "거래대금";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(2, 180);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "저가";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(144, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "거래량";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(144, 112);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 12);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "고가";
+            // 
+            // 등락률
+            // 
+            this.등락률.AutoSize = true;
+            this.등락률.Location = new System.Drawing.Point(203, 222);
+            this.등락률.Name = "등락률";
+            this.등락률.Size = new System.Drawing.Size(41, 12);
+            this.등락률.TabIndex = 24;
+            this.등락률.Text = "등락률";
+            // 
+            // 체결강도
+            // 
+            this.체결강도.AutoSize = true;
+            this.체결강도.Location = new System.Drawing.Point(203, 180);
+            this.체결강도.Name = "체결강도";
+            this.체결강도.Size = new System.Drawing.Size(53, 12);
+            this.체결강도.TabIndex = 23;
+            this.체결강도.Text = "체결강도";
+            // 
+            // 현재가
+            // 
+            this.현재가.AutoSize = true;
+            this.현재가.Location = new System.Drawing.Point(54, 143);
+            this.현재가.Name = "현재가";
+            this.현재가.Size = new System.Drawing.Size(41, 12);
+            this.현재가.TabIndex = 22;
+            this.현재가.Text = "현재가";
             // 
             // tabControl1
             // 
@@ -469,6 +566,76 @@ namespace WindowsFormsApp1_API
             this.tabPage1.Text = "매수";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 115);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 12);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "가격";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 68);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 12);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "수량";
+            // 
+            // 매수_매수버튼
+            // 
+            this.매수_매수버튼.Location = new System.Drawing.Point(38, 185);
+            this.매수_매수버튼.Name = "매수_매수버튼";
+            this.매수_매수버튼.Size = new System.Drawing.Size(75, 23);
+            this.매수_매수버튼.TabIndex = 32;
+            this.매수_매수버튼.Text = "매수";
+            this.매수_매수버튼.UseVisualStyleBackColor = true;
+            // 
+            // 매수_주
+            // 
+            this.매수_주.Location = new System.Drawing.Point(175, 59);
+            this.매수_주.Name = "매수_주";
+            this.매수_주.Size = new System.Drawing.Size(38, 21);
+            this.매수_주.TabIndex = 31;
+            this.매수_주.Text = "주";
+            this.매수_주.UseVisualStyleBackColor = true;
+            // 
+            // 매수_시장가
+            // 
+            this.매수_시장가.AutoSize = true;
+            this.매수_시장가.Location = new System.Drawing.Point(164, 113);
+            this.매수_시장가.Name = "매수_시장가";
+            this.매수_시장가.Size = new System.Drawing.Size(60, 16);
+            this.매수_시장가.TabIndex = 30;
+            this.매수_시장가.Text = "시장가";
+            this.매수_시장가.UseVisualStyleBackColor = true;
+            // 
+            // 매수_현재가
+            // 
+            this.매수_현재가.AutoSize = true;
+            this.매수_현재가.Location = new System.Drawing.Point(38, 137);
+            this.매수_현재가.Name = "매수_현재가";
+            this.매수_현재가.Size = new System.Drawing.Size(94, 16);
+            this.매수_현재가.TabIndex = 29;
+            this.매수_현재가.Text = "현재가(자동)";
+            this.매수_현재가.UseVisualStyleBackColor = true;
+            // 
+            // 매수_가격
+            // 
+            this.매수_가격.Location = new System.Drawing.Point(38, 108);
+            this.매수_가격.Name = "매수_가격";
+            this.매수_가격.Size = new System.Drawing.Size(120, 21);
+            this.매수_가격.TabIndex = 28;
+            // 
+            // 매수_수량
+            // 
+            this.매수_수량.Location = new System.Drawing.Point(38, 59);
+            this.매수_수량.Name = "매수_수량";
+            this.매수_수량.Size = new System.Drawing.Size(120, 21);
+            this.매수_수량.TabIndex = 27;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label11);
@@ -487,66 +654,23 @@ namespace WindowsFormsApp1_API
             this.tabPage2.Text = "매도";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // 매수_수량
+            // label11
             // 
-            this.매수_수량.Location = new System.Drawing.Point(38, 59);
-            this.매수_수량.Name = "매수_수량";
-            this.매수_수량.Size = new System.Drawing.Size(120, 21);
-            this.매수_수량.TabIndex = 27;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 12);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "가격";
             // 
-            // 매수_가격
+            // label2
             // 
-            this.매수_가격.Location = new System.Drawing.Point(38, 108);
-            this.매수_가격.Name = "매수_가격";
-            this.매수_가격.Size = new System.Drawing.Size(120, 21);
-            this.매수_가격.TabIndex = 28;
-            // 
-            // 매수_현재가
-            // 
-            this.매수_현재가.AutoSize = true;
-            this.매수_현재가.Location = new System.Drawing.Point(38, 137);
-            this.매수_현재가.Name = "매수_현재가";
-            this.매수_현재가.Size = new System.Drawing.Size(94, 16);
-            this.매수_현재가.TabIndex = 29;
-            this.매수_현재가.Text = "현재가(자동)";
-            this.매수_현재가.UseVisualStyleBackColor = true;
-            // 
-            // 매수_시장가
-            // 
-            this.매수_시장가.AutoSize = true;
-            this.매수_시장가.Location = new System.Drawing.Point(164, 113);
-            this.매수_시장가.Name = "매수_시장가";
-            this.매수_시장가.Size = new System.Drawing.Size(60, 16);
-            this.매수_시장가.TabIndex = 30;
-            this.매수_시장가.Text = "시장가";
-            this.매수_시장가.UseVisualStyleBackColor = true;
-            // 
-            // 매수_주
-            // 
-            this.매수_주.Location = new System.Drawing.Point(175, 59);
-            this.매수_주.Name = "매수_주";
-            this.매수_주.Size = new System.Drawing.Size(38, 21);
-            this.매수_주.TabIndex = 31;
-            this.매수_주.Text = "주";
-            this.매수_주.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(262, 273);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "정정/취소";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // 매수_매수버튼
-            // 
-            this.매수_매수버튼.Location = new System.Drawing.Point(38, 185);
-            this.매수_매수버튼.Name = "매수_매수버튼";
-            this.매수_매수버튼.Size = new System.Drawing.Size(75, 23);
-            this.매수_매수버튼.TabIndex = 32;
-            this.매수_매수버튼.Text = "매수";
-            this.매수_매수버튼.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "수량";
             // 
             // 매도_매도버튼
             // 
@@ -557,6 +681,13 @@ namespace WindowsFormsApp1_API
             this.매도_매도버튼.Text = "매도";
             this.매도_매도버튼.UseVisualStyleBackColor = true;
             // 
+            // 매도_가격
+            // 
+            this.매도_가격.Location = new System.Drawing.Point(50, 100);
+            this.매도_가격.Name = "매도_가격";
+            this.매도_가격.Size = new System.Drawing.Size(120, 21);
+            this.매도_가격.TabIndex = 34;
+            // 
             // 매도_주
             // 
             this.매도_주.Location = new System.Drawing.Point(187, 51);
@@ -565,6 +696,13 @@ namespace WindowsFormsApp1_API
             this.매도_주.TabIndex = 37;
             this.매도_주.Text = "주";
             this.매도_주.UseVisualStyleBackColor = true;
+            // 
+            // 매도_수량
+            // 
+            this.매도_수량.Location = new System.Drawing.Point(50, 51);
+            this.매도_수량.Name = "매도_수량";
+            this.매도_수량.Size = new System.Drawing.Size(120, 21);
+            this.매도_수량.TabIndex = 33;
             // 
             // 매도_시장가
             // 
@@ -586,82 +724,32 @@ namespace WindowsFormsApp1_API
             this.매도_현재가.Text = "현재가(자동)";
             this.매도_현재가.UseVisualStyleBackColor = true;
             // 
-            // 매도_가격
+            // tabPage3
             // 
-            this.매도_가격.Location = new System.Drawing.Point(50, 100);
-            this.매도_가격.Name = "매도_가격";
-            this.매도_가격.Size = new System.Drawing.Size(120, 21);
-            this.매도_가격.TabIndex = 34;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(262, 273);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "정정/취소";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // 매도_수량
+            // label20
             // 
-            this.매도_수량.Location = new System.Drawing.Point(50, 51);
-            this.매도_수량.Name = "매도_수량";
-            this.매도_수량.Size = new System.Drawing.Size(120, 21);
-            this.매도_수량.TabIndex = 33;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2, 100);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.TabIndex = 26;
+            this.label20.Text = "전일대비";
             // 
-            // label2
+            // label21
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "수량";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 100);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 12);
-            this.label11.TabIndex = 39;
-            this.label11.Text = "가격";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "가격";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 68);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 12);
-            this.label13.TabIndex = 41;
-            this.label13.Text = "수량";
-            // 
-            // 현재가
-            // 
-            this.현재가.AutoSize = true;
-            this.현재가.Location = new System.Drawing.Point(13, 180);
-            this.현재가.Name = "현재가";
-            this.현재가.Size = new System.Drawing.Size(41, 12);
-            this.현재가.TabIndex = 22;
-            this.현재가.Text = "현재가";
-            // 
-            // 체결강도
-            // 
-            this.체결강도.AutoSize = true;
-            this.체결강도.Location = new System.Drawing.Point(91, 179);
-            this.체결강도.Name = "체결강도";
-            this.체결강도.Size = new System.Drawing.Size(53, 12);
-            this.체결강도.TabIndex = 23;
-            this.체결강도.Text = "체결강도";
-            // 
-            // 전일대비_퍼센트
-            // 
-            this.전일대비_퍼센트.AutoSize = true;
-            this.전일대비_퍼센트.Location = new System.Drawing.Point(168, 180);
-            this.전일대비_퍼센트.Name = "전일대비_퍼센트";
-            this.전일대비_퍼센트.Size = new System.Drawing.Size(77, 12);
-            this.전일대비_퍼센트.TabIndex = 24;
-            this.전일대비_퍼센트.Text = "전일대비 (%)";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 143);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 27;
+            this.label21.Text = "현재가";
             // 
             // Form1
             // 
@@ -680,7 +768,7 @@ namespace WindowsFormsApp1_API
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = " ";
+            this.Text = "l";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -696,10 +784,10 @@ namespace WindowsFormsApp1_API
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.매수_가격)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.매수_수량)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.매수_수량)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.매수_가격)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.매도_가격)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.매도_수량)).EndInit();
             this.ResumeLayout(false);
@@ -757,9 +845,17 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label 전일대비_퍼센트;
+        private System.Windows.Forms.Label 등락률;
         private System.Windows.Forms.Label 체결강도;
         private System.Windows.Forms.Label 현재가;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }
 

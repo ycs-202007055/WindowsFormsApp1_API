@@ -20,6 +20,7 @@ namespace WindowsFormsApp1_API
         public Form1()
         {
             InitializeComponent();
+            axKHOpenAPI1.OnReceiveRealData += OnReceiveRealData;
             ConstructorA();
             ConstructorB();
         }
@@ -38,6 +39,13 @@ namespace WindowsFormsApp1_API
             OnReceiveA(sender,e);
             OnReceiveB(sender,e);
         }
+
+        public void OnReceiveRealData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
+        {
+            OnReceiveRealDataA(sender, e);
+            OnReceiveRealDataB(sender, e);
+        }
+          
 
 
     }
