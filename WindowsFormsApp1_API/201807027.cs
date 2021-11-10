@@ -62,6 +62,10 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.SetInputValue("수정주가구분", "0");
             axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0001");
         }
+        public void OnReceiveRealDataA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
+        {
+
+        }
 
     }
 }
