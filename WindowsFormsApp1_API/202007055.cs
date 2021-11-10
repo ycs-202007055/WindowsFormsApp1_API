@@ -22,6 +22,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.OnEventConnect += OnEventConnect;
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
+            
         }
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -48,6 +49,14 @@ namespace WindowsFormsApp1_API
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
 
+        }
+
+        public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        { 
+        
+        
+        
+        
         }
 
     }
