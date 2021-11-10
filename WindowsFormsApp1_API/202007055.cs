@@ -26,15 +26,15 @@ namespace WindowsFormsApp1_API
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
-
             String[] Acount = axKHOpenAPI1.GetLoginInfo("ACCLIST").Split(';');
-            int i = Acount.Length;
+            int i = 0;
 
-            while (i<=0)
+            while (i < Acount.Length - 1)
             {
-                계좌번호콤보.Items.Add(Acount[i-1]);   
-                i--;
+                계좌번호콤보.Items.Add(Acount[i]);
+                i++;
             }
+            계좌번호콤보.SelectedIndex = 0;
             axKHOpenAPI1.SetInputValue("계좌번호", 계좌번호콤보.Text);
             axKHOpenAPI1.SetInputValue("비밀번호", "");
             axKHOpenAPI1.SetInputValue("비밀번호입력매체구분", "00");
