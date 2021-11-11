@@ -20,11 +20,13 @@ namespace WindowsFormsApp1_API
         {
             고가.ForeColor = Color.Red;
             저가.ForeColor = Color.Blue;
+           // axKHOpenAPI1.SetRealReg("0001",)
         }
 
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            if(e.sRQName == "종목정보")
+            Console.WriteLine("d");
+            if (e.sRQName == "종목정보")
             {
                 종목명.Text =  axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim();
 
@@ -64,7 +66,13 @@ namespace WindowsFormsApp1_API
         }
         public void OnReceiveRealDataA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
-
+            Console.WriteLine("d");
+            if (e.sRealType == "주식체결")
+            {
+                
+               int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey,10));
+                현재가.Text = string.Format("{0:#,##0}", CurrentPrice);
+            }
         }
 
     }
