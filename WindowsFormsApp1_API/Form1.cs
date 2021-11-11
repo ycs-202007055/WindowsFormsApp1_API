@@ -52,5 +52,22 @@ namespace WindowsFormsApp1_API
            // comboBox2_SelectedIndexChangedA(object, e);
            // comboBox2_SelectedIndexChangedB(object, e);
         }
+
+        private void 매수_주_Click(object sender, EventArgs e)
+        {
+            if(주_선택.Visible == true)
+                주_선택.Visible = false;
+            else
+                주_선택.Visible = true;
+        }
+
+        private void 매도_주_Click(object sender, EventArgs e)
+        {
+            if (주_선택.Visible == true)
+                주_선택.Visible = false;
+            else
+                주_선택.Visible = true;
+        }
+
     }
 }
