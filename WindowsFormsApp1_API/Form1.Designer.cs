@@ -31,17 +31,16 @@ namespace WindowsFormsApp1_API
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.로그인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,7 +58,6 @@ namespace WindowsFormsApp1_API
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.계좌번호콤보 = new System.Windows.Forms.ComboBox();
             this.검색버튼 = new System.Windows.Forms.Button();
             this.검색창 = new System.Windows.Forms.TextBox();
@@ -74,17 +72,18 @@ namespace WindowsFormsApp1_API
             this.거래량 = new System.Windows.Forms.Label();
             this.거래대금 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.체결강도 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.등락률 = new System.Windows.Forms.Label();
-            this.체결강도 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.현재가 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.등락률 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
@@ -123,8 +122,6 @@ namespace WindowsFormsApp1_API
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.주_선택 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -152,6 +149,7 @@ namespace WindowsFormsApp1_API
             this.tableLayoutPanel1.SuspendLayout();
             this.종목리스트.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.매수_가격)).BeginInit();
@@ -193,16 +191,16 @@ namespace WindowsFormsApp1_API
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(426, 27);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(246, 27);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(909, 469);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
@@ -210,32 +208,19 @@ namespace WindowsFormsApp1_API
             // chart2
             // 
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
-            this.chart2.Location = new System.Drawing.Point(426, 493);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(246, 493);
             this.chart2.Name = "chart2";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart2.Series.Add(series6);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(909, 138);
             this.chart2.TabIndex = 11;
             this.chart2.Text = "chart2";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(186, 676);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 12);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "당일 손익금";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
@@ -469,19 +454,6 @@ namespace WindowsFormsApp1_API
             this.label10.Text = "총매입값";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 676);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 12);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "label7";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // 계좌번호콤보
             // 
             this.계좌번호콤보.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -561,191 +533,297 @@ namespace WindowsFormsApp1_API
             // 종목명
             // 
             this.종목명.AutoSize = true;
-            this.종목명.Location = new System.Drawing.Point(95, 32);
+            this.종목명.Font = new System.Drawing.Font("굴림", 17F);
+            this.종목명.Location = new System.Drawing.Point(11, 17);
             this.종목명.Name = "종목명";
-            this.종목명.Size = new System.Drawing.Size(41, 12);
+            this.종목명.Size = new System.Drawing.Size(79, 23);
             this.종목명.TabIndex = 21;
             this.종목명.Text = "종목명";
             // 
             // 고가
             // 
+            this.고가.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.고가.AutoSize = true;
-            this.고가.Location = new System.Drawing.Point(194, 112);
+            this.고가.Font = new System.Drawing.Font("굴림", 9F);
+            this.고가.Location = new System.Drawing.Point(63, 45);
             this.고가.Name = "고가";
-            this.고가.Size = new System.Drawing.Size(29, 12);
+            this.고가.Size = new System.Drawing.Size(54, 45);
             this.고가.TabIndex = 21;
             this.고가.Text = "고가";
+            this.고가.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 저가
             // 
+            this.저가.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.저가.AutoSize = true;
-            this.저가.Location = new System.Drawing.Point(66, 180);
+            this.저가.Font = new System.Drawing.Font("굴림", 9F);
+            this.저가.Location = new System.Drawing.Point(63, 135);
             this.저가.Name = "저가";
-            this.저가.Size = new System.Drawing.Size(29, 12);
+            this.저가.Size = new System.Drawing.Size(54, 48);
             this.저가.TabIndex = 21;
             this.저가.Text = "저가";
+            this.저가.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 전일대비
             // 
+            this.전일대비.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.전일대비.AutoSize = true;
-            this.전일대비.Location = new System.Drawing.Point(54, 100);
+            this.전일대비.Font = new System.Drawing.Font("굴림", 9F);
+            this.전일대비.Location = new System.Drawing.Point(63, 0);
             this.전일대비.Name = "전일대비";
-            this.전일대비.Size = new System.Drawing.Size(53, 12);
+            this.전일대비.Size = new System.Drawing.Size(54, 45);
             this.전일대비.TabIndex = 21;
             this.전일대비.Text = "전일대비";
+            this.전일대비.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 거래량
             // 
+            this.거래량.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.거래량.AutoSize = true;
-            this.거래량.Location = new System.Drawing.Point(194, 93);
+            this.거래량.Font = new System.Drawing.Font("굴림", 9F);
+            this.거래량.Location = new System.Drawing.Point(183, 45);
             this.거래량.Name = "거래량";
-            this.거래량.Size = new System.Drawing.Size(41, 12);
+            this.거래량.Size = new System.Drawing.Size(56, 45);
             this.거래량.TabIndex = 21;
             this.거래량.Text = "거래량";
+            this.거래량.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 거래대금
             // 
+            this.거래대금.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.거래대금.AutoSize = true;
-            this.거래대금.Location = new System.Drawing.Point(203, 143);
+            this.거래대금.Font = new System.Drawing.Font("굴림", 9F);
+            this.거래대금.Location = new System.Drawing.Point(183, 0);
             this.거래대금.Name = "거래대금";
-            this.거래대금.Size = new System.Drawing.Size(53, 12);
+            this.거래대금.Size = new System.Drawing.Size(56, 45);
             this.거래대금.TabIndex = 21;
             this.거래대금.Text = "거래대금";
+            this.거래대금.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.등락률);
-            this.groupBox1.Controls.Add(this.체결강도);
-            this.groupBox1.Controls.Add(this.현재가);
-            this.groupBox1.Controls.Add(this.고가);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Controls.Add(this.종목명);
-            this.groupBox1.Controls.Add(this.저가);
-            this.groupBox1.Controls.Add(this.전일대비);
-            this.groupBox1.Controls.Add(this.거래량);
-            this.groupBox1.Controls.Add(this.거래대금);
-            this.groupBox1.Location = new System.Drawing.Point(1341, 31);
+            this.groupBox1.Location = new System.Drawing.Point(1161, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 295);
+            this.groupBox1.Size = new System.Drawing.Size(250, 233);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label21
+            // tableLayoutPanel2
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 143);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 12);
-            this.label21.TabIndex = 27;
-            this.label21.Text = "현재가";
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.label20, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.전일대비, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label17, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label19, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.거래대금, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.체결강도, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.고가, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label16, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label15, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.저가, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label21, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.거래량, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.현재가, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label18, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.등락률, 3, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 47);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(242, 183);
+            this.tableLayoutPanel2.TabIndex = 31;
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(2, 100);
+            this.label20.Font = new System.Drawing.Font("굴림", 9F);
+            this.label20.Location = new System.Drawing.Point(3, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.Size = new System.Drawing.Size(54, 45);
             this.label20.TabIndex = 26;
             this.label20.Text = "전일대비";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(129, 180);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 12);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "체결강도";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(153, 222);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 12);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "등락률";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(144, 143);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "거래대금";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(2, 180);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 12);
-            this.label16.TabIndex = 25;
-            this.label16.Text = "저가";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(144, 93);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "거래량";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(144, 112);
+            this.label14.Font = new System.Drawing.Font("굴림", 9F);
+            this.label14.Location = new System.Drawing.Point(3, 45);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 12);
+            this.label14.Size = new System.Drawing.Size(54, 45);
             this.label14.TabIndex = 25;
             this.label14.Text = "고가";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // 등락률
+            // label17
             // 
-            this.등락률.AutoSize = true;
-            this.등락률.Location = new System.Drawing.Point(203, 222);
-            this.등락률.Name = "등락률";
-            this.등락률.Size = new System.Drawing.Size(41, 12);
-            this.등락률.TabIndex = 24;
-            this.등락률.Text = "등락률";
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("굴림", 9F);
+            this.label17.Location = new System.Drawing.Point(123, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 45);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "거래대금";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("굴림", 9F);
+            this.label19.Location = new System.Drawing.Point(123, 135);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(54, 48);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "체결강도";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 체결강도
             // 
+            this.체결강도.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.체결강도.AutoSize = true;
-            this.체결강도.Location = new System.Drawing.Point(203, 180);
+            this.체결강도.Font = new System.Drawing.Font("굴림", 9F);
+            this.체결강도.Location = new System.Drawing.Point(183, 135);
             this.체결강도.Name = "체결강도";
-            this.체결강도.Size = new System.Drawing.Size(53, 12);
+            this.체결강도.Size = new System.Drawing.Size(56, 48);
             this.체결강도.TabIndex = 23;
             this.체결강도.Text = "체결강도";
+            this.체결강도.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("굴림", 9F);
+            this.label16.Location = new System.Drawing.Point(3, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 48);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "저가";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("굴림", 9F);
+            this.label15.Location = new System.Drawing.Point(123, 45);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 45);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "거래량";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("굴림", 9F);
+            this.label21.Location = new System.Drawing.Point(3, 90);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(54, 45);
+            this.label21.TabIndex = 27;
+            this.label21.Text = "현재가";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 현재가
             // 
+            this.현재가.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.현재가.AutoSize = true;
-            this.현재가.Location = new System.Drawing.Point(54, 143);
+            this.현재가.Font = new System.Drawing.Font("굴림", 9F);
+            this.현재가.Location = new System.Drawing.Point(63, 90);
             this.현재가.Name = "현재가";
-            this.현재가.Size = new System.Drawing.Size(41, 12);
+            this.현재가.Size = new System.Drawing.Size(54, 45);
             this.현재가.TabIndex = 22;
             this.현재가.Text = "현재가";
+            this.현재가.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("굴림", 9F);
+            this.label18.Location = new System.Drawing.Point(123, 90);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 45);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "등락률";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // 등락률
+            // 
+            this.등락률.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.등락률.AutoSize = true;
+            this.등락률.Font = new System.Drawing.Font("굴림", 9F);
+            this.등락률.Location = new System.Drawing.Point(183, 90);
+            this.등락률.Name = "등락률";
+            this.등락률.Size = new System.Drawing.Size(56, 45);
+            this.등락률.TabIndex = 24;
+            this.등락률.Text = "등락률";
+            this.등락률.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(1341, 332);
+            this.tabControl1.Location = new System.Drawing.Point(1161, 267);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(270, 299);
+            this.tabControl1.Size = new System.Drawing.Size(250, 299);
             this.tabControl1.TabIndex = 25;
             // 
             // tabPage1
@@ -761,7 +839,7 @@ namespace WindowsFormsApp1_API
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(262, 273);
+            this.tabPage1.Size = new System.Drawing.Size(242, 273);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "매수";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -850,7 +928,7 @@ namespace WindowsFormsApp1_API
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(262, 273);
+            this.tabPage2.Size = new System.Drawing.Size(223, 273);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "매도";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -930,14 +1008,14 @@ namespace WindowsFormsApp1_API
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(262, 273);
+            this.tabPage3.Size = new System.Drawing.Size(223, 273);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "정정/취소";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(236, 31);
+            this.button1.Location = new System.Drawing.Point(47, 668);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 27;
@@ -946,7 +1024,7 @@ namespace WindowsFormsApp1_API
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(236, 63);
+            this.button2.Location = new System.Drawing.Point(47, 700);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 23);
             this.button2.TabIndex = 28;
@@ -966,7 +1044,7 @@ namespace WindowsFormsApp1_API
             // 
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Location = new System.Drawing.Point(426, 637);
+            this.tabControl2.Location = new System.Drawing.Point(246, 637);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(918, 404);
@@ -1078,32 +1156,6 @@ namespace WindowsFormsApp1_API
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(280, 700);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 12);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "label8";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(217, 729);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 12);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "당일 손익률";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // 주_선택
             // 
@@ -1383,14 +1435,10 @@ namespace WindowsFormsApp1_API
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.주_선택);
             this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.검색창);
@@ -1414,6 +1462,8 @@ namespace WindowsFormsApp1_API
             this.종목리스트.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1441,11 +1491,9 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 로그인ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button 검색버튼;
         private System.Windows.Forms.TextBox 검색창;
         private System.Windows.Forms.TableLayoutPanel 종목리스트;
@@ -1513,8 +1561,6 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -1545,6 +1591,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
 
