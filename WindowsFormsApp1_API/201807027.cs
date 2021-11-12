@@ -20,7 +20,7 @@ namespace WindowsFormsApp1_API
         {
             고가.ForeColor = Color.Red;
             저가.ForeColor = Color.Blue;
-           // axKHOpenAPI1.SetRealReg("0001",)
+            // axKHOpenAPI1.SetRealReg("0001",)
         }
 
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
@@ -28,10 +28,10 @@ namespace WindowsFormsApp1_API
             Console.WriteLine("d");
             if (e.sRQName == "종목정보")
             {
-                종목명.Text =  axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim();
+                종목명.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim();
 
                 int HighPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "고가"));
-                고가.Text = string.Format("{0:#,##0}",HighPrice);
+                고가.Text = string.Format("{0:#,##0}", HighPrice);
 
                 int LowPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "저가"));
                 저가.Text = string.Format("{0:#,##0}", Math.Abs(LowPrice));
@@ -43,11 +43,11 @@ namespace WindowsFormsApp1_API
                 if (DaytoDay > 0) 전일대비.ForeColor = Color.Red;
                 else if (DaytoDay < 0) 전일대비.ForeColor = Color.Blue;
                 else 전일대비.ForeColor = Color.Black;
-                전일대비.Text = string.Format("{0:#,##0}",Math.Abs(DaytoDay));
+                전일대비.Text = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
 
 
             }
-            else if(e.sRQName == "종목정보_거래대금")
+            else if (e.sRQName == "종목정보_거래대금")
             {
                 int Trading_Value = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "거래대금"));
                 거래대금.Text = string.Format("{0:#,##0}", Trading_Value);
@@ -66,12 +66,38 @@ namespace WindowsFormsApp1_API
         }
         public void OnReceiveRealDataA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
-            Console.WriteLine("d");
             if (e.sRealType == "주식체결")
             {
-                
-               int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey,10));
+
+                int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 10));
                 현재가.Text = string.Format("{0:#,##0}", CurrentPrice);
+
+                int DaytoDay = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 11));
+                if (DaytoDay > 0) 전일대비.ForeColor = Color.Red;
+                else if (DaytoDay < 0) 전일대비.ForeColor = Color.Blue;
+                else 전일대비.ForeColor = Color.Black;
+                전일대비.Text = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
+
+                int Trading_Volume = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 13));
+                거래량.Text = string.Format("{0:#,##0}", Trading_Volume);
+
+                int HighPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 17));
+                고가.Text = string.Format("{0:#,##0}", HighPrice);
+
+                int LowPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 18));
+                저가.Text = string.Format("{0:#,##0}", Math.Abs(LowPrice));
+
+                int Trading_Value = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 14));
+                거래대금.Text = string.Format("{0:#,##0}", Trading_Value);
+
+                string FluRate = axKHOpenAPI1.GetCommRealData(e.sRealKey, 12);
+                float FluRatef = float.Parse(FluRate);
+                if (FluRatef > 0) 등락률.ForeColor = Color.Red;
+                else if (FluRatef < 0) 등락률.ForeColor = Color.Blue;
+                else 등락률.ForeColor = Color.Black;
+                등락률.Text = FluRate + "%";
+
+                체결강도.Text = axKHOpenAPI1.GetCommRealData(e.sRealKey, 228);
             }
         }
 
