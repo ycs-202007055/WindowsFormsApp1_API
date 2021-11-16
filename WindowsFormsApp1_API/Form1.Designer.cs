@@ -874,7 +874,7 @@ namespace WindowsFormsApp1_API
             // 
             // 매수_주
             // 
-            this.매수_주.Location = new System.Drawing.Point(175, 59);
+            this.매수_주.Location = new System.Drawing.Point(180, 59);
             this.매수_주.Name = "매수_주";
             this.매수_주.Size = new System.Drawing.Size(38, 21);
             this.매수_주.TabIndex = 31;
@@ -1188,7 +1188,7 @@ namespace WindowsFormsApp1_API
             this.주_선택.Controls.Add(this.button6, 3, 1);
             this.주_선택.Controls.Add(this.button7, 4, 1);
             this.주_선택.Controls.Add(this.button8, 5, 1);
-            this.주_선택.Location = new System.Drawing.Point(1520, 435);
+            this.주_선택.Location = new System.Drawing.Point(1345, 370);
             this.주_선택.Name = "주_선택";
             this.주_선택.RowCount = 5;
             this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -1196,6 +1196,20 @@ namespace WindowsFormsApp1_API
             this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.주_선택.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.주_선택.Size = new System.Drawing.Size(329, 183);
             this.주_선택.TabIndex = 1;
             this.주_선택.Visible = false;
