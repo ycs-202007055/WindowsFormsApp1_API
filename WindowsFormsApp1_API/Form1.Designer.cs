@@ -960,6 +960,7 @@ namespace WindowsFormsApp1_API
             this.매도_매도버튼.TabIndex = 38;
             this.매도_매도버튼.Text = "매도";
             this.매도_매도버튼.UseVisualStyleBackColor = true;
+            this.매도_매도버튼.Click += new System.EventHandler(this.매도_매도버튼_Click);
             // 
             // 매도_가격
             // 
