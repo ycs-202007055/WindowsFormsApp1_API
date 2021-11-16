@@ -57,7 +57,7 @@ namespace WindowsFormsApp1_API
         }
         private void 매수_매수버튼_Click(object sender, EventArgs e)
         {
-            axKHOpenAPI1.SendOrder("", "0000", 계좌번호콤보.Text, 1, "005830", 1, int.Parse(label21.Text), "00", "");
+            axKHOpenAPI1.SendOrder("", "0000", 계좌번호콤보.Text, 1, "005380", 1, int.Parse(label21.Text), "00", "");
         }
     }
 }
