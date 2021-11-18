@@ -61,10 +61,6 @@ namespace WindowsFormsApp1_API
             this.계좌번호콤보 = new System.Windows.Forms.ComboBox();
             this.검색버튼 = new System.Windows.Forms.Button();
             this.검색창 = new System.Windows.Forms.TextBox();
-            this.종목리스트 = new System.Windows.Forms.TableLayoutPanel();
-            this.id2 = new System.Windows.Forms.Label();
-            this.id1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.종목명 = new System.Windows.Forms.Label();
             this.고가 = new System.Windows.Forms.Label();
             this.저가 = new System.Windows.Forms.Label();
@@ -142,12 +138,13 @@ namespace WindowsFormsApp1_API
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.종목리스트 = new System.Windows.Forms.FlowLayoutPanel();
+            this.stockItem1 = new WindowsFormsApp1_API.StockItem();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.종목리스트.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -162,6 +159,7 @@ namespace WindowsFormsApp1_API
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.주_선택.SuspendLayout();
+            this.종목리스트.SuspendLayout();
             this.SuspendLayout();
             // 
             // axKHOpenAPI1
@@ -480,55 +478,6 @@ namespace WindowsFormsApp1_API
             this.검색창.Name = "검색창";
             this.검색창.Size = new System.Drawing.Size(100, 21);
             this.검색창.TabIndex = 19;
-            // 
-            // 종목리스트
-            // 
-            this.종목리스트.ColumnCount = 2;
-            this.종목리스트.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.종목리스트.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.종목리스트.Controls.Add(this.id2, 1, 0);
-            this.종목리스트.Controls.Add(this.id1, 0, 1);
-            this.종목리스트.Controls.Add(this.comboBox2, 0, 0);
-            this.종목리스트.Location = new System.Drawing.Point(1614, 28);
-            this.종목리스트.Name = "종목리스트";
-            this.종목리스트.RowCount = 2;
-            this.종목리스트.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.종목리스트.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.종목리스트.Size = new System.Drawing.Size(290, 796);
-            this.종목리스트.TabIndex = 20;
-            // 
-            // id2
-            // 
-            this.id2.AutoSize = true;
-            this.id2.Location = new System.Drawing.Point(148, 0);
-            this.id2.Name = "id2";
-            this.id2.Size = new System.Drawing.Size(44, 12);
-            this.id2.TabIndex = 1;
-            this.id2.Text = "label12";
-            // 
-            // id1
-            // 
-            this.id1.AutoSize = true;
-            this.id1.Location = new System.Drawing.Point(3, 398);
-            this.id1.Name = "id1";
-            this.id1.Size = new System.Drawing.Size(44, 12);
-            this.id1.TabIndex = 0;
-            this.id1.Text = "label11";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "005930",
-            "019170",
-            "005935",
-            "005935",
-            "052690"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 2;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // 종목명
             // 
@@ -901,7 +850,6 @@ namespace WindowsFormsApp1_API
             this.매수_현재가.TabIndex = 29;
             this.매수_현재가.Text = "현재가(자동)";
             this.매수_현재가.UseVisualStyleBackColor = true;
-            
             // 
             // 매수_가격
             // 
@@ -1163,6 +1111,7 @@ namespace WindowsFormsApp1_API
             // 주_선택
             // 
             this.주_선택.BackColor = System.Drawing.Color.White;
+            this.주_선택.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.주_선택.ColumnCount = 6;
             this.주_선택.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.주_선택.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -1220,9 +1169,9 @@ namespace WindowsFormsApp1_API
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(3, 39);
+            this.button4.Location = new System.Drawing.Point(4, 40);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 30);
+            this.button4.Size = new System.Drawing.Size(47, 29);
             this.button4.TabIndex = 0;
             this.button4.Text = "100%";
             this.button4.UseVisualStyleBackColor = true;
@@ -1232,9 +1181,9 @@ namespace WindowsFormsApp1_API
             this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.Location = new System.Drawing.Point(3, 111);
+            this.button15.Location = new System.Drawing.Point(4, 112);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(48, 30);
+            this.button15.Size = new System.Drawing.Size(47, 29);
             this.button15.TabIndex = 0;
             this.button15.Text = "0";
             this.button15.UseVisualStyleBackColor = true;
@@ -1244,9 +1193,9 @@ namespace WindowsFormsApp1_API
             this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button16.Location = new System.Drawing.Point(57, 111);
+            this.button16.Location = new System.Drawing.Point(58, 112);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(48, 30);
+            this.button16.Size = new System.Drawing.Size(47, 29);
             this.button16.TabIndex = 0;
             this.button16.Text = "1";
             this.button16.UseVisualStyleBackColor = true;
@@ -1256,9 +1205,9 @@ namespace WindowsFormsApp1_API
             this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button17.Location = new System.Drawing.Point(111, 111);
+            this.button17.Location = new System.Drawing.Point(112, 112);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(48, 30);
+            this.button17.Size = new System.Drawing.Size(47, 29);
             this.button17.TabIndex = 0;
             this.button17.Text = "5";
             this.button17.UseVisualStyleBackColor = true;
@@ -1268,9 +1217,9 @@ namespace WindowsFormsApp1_API
             this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button18.Location = new System.Drawing.Point(165, 111);
+            this.button18.Location = new System.Drawing.Point(166, 112);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(48, 30);
+            this.button18.Size = new System.Drawing.Size(47, 29);
             this.button18.TabIndex = 0;
             this.button18.Text = "10";
             this.button18.UseVisualStyleBackColor = true;
@@ -1280,9 +1229,9 @@ namespace WindowsFormsApp1_API
             this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button19.Location = new System.Drawing.Point(219, 111);
+            this.button19.Location = new System.Drawing.Point(220, 112);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(48, 30);
+            this.button19.Size = new System.Drawing.Size(47, 29);
             this.button19.TabIndex = 0;
             this.button19.Text = "50";
             this.button19.UseVisualStyleBackColor = true;
@@ -1292,9 +1241,9 @@ namespace WindowsFormsApp1_API
             this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button20.Location = new System.Drawing.Point(273, 111);
+            this.button20.Location = new System.Drawing.Point(274, 112);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(53, 30);
+            this.button20.Size = new System.Drawing.Size(51, 29);
             this.button20.TabIndex = 0;
             this.button20.Text = "100";
             this.button20.UseVisualStyleBackColor = true;
@@ -1305,9 +1254,9 @@ namespace WindowsFormsApp1_API
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 0);
+            this.label35.Location = new System.Drawing.Point(4, 1);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(48, 36);
+            this.label35.Size = new System.Drawing.Size(47, 35);
             this.label35.TabIndex = 26;
             this.label35.Text = "고정(%)";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1317,9 +1266,9 @@ namespace WindowsFormsApp1_API
             this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button22.Location = new System.Drawing.Point(219, 147);
+            this.button22.Location = new System.Drawing.Point(220, 148);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(48, 33);
+            this.button22.Size = new System.Drawing.Size(47, 31);
             this.button22.TabIndex = 0;
             this.button22.Text = "1000";
             this.button22.UseVisualStyleBackColor = true;
@@ -1329,9 +1278,9 @@ namespace WindowsFormsApp1_API
             this.button23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button23.Location = new System.Drawing.Point(165, 147);
+            this.button23.Location = new System.Drawing.Point(166, 148);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(48, 33);
+            this.button23.Size = new System.Drawing.Size(47, 31);
             this.button23.TabIndex = 0;
             this.button23.Text = "500";
             this.button23.UseVisualStyleBackColor = true;
@@ -1341,9 +1290,9 @@ namespace WindowsFormsApp1_API
             this.button24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button24.Location = new System.Drawing.Point(111, 147);
+            this.button24.Location = new System.Drawing.Point(112, 148);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(48, 33);
+            this.button24.Size = new System.Drawing.Size(47, 31);
             this.button24.TabIndex = 0;
             this.button24.Text = "400";
             this.button24.UseVisualStyleBackColor = true;
@@ -1353,9 +1302,9 @@ namespace WindowsFormsApp1_API
             this.button25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button25.Location = new System.Drawing.Point(57, 147);
+            this.button25.Location = new System.Drawing.Point(58, 148);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(48, 33);
+            this.button25.Size = new System.Drawing.Size(47, 31);
             this.button25.TabIndex = 0;
             this.button25.Text = "300";
             this.button25.UseVisualStyleBackColor = true;
@@ -1365,9 +1314,9 @@ namespace WindowsFormsApp1_API
             this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button26.Location = new System.Drawing.Point(3, 147);
+            this.button26.Location = new System.Drawing.Point(4, 148);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(48, 33);
+            this.button26.Size = new System.Drawing.Size(47, 31);
             this.button26.TabIndex = 0;
             this.button26.Text = "200";
             this.button26.UseVisualStyleBackColor = true;
@@ -1378,9 +1327,9 @@ namespace WindowsFormsApp1_API
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 72);
+            this.label33.Location = new System.Drawing.Point(4, 73);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(48, 36);
+            this.label33.Size = new System.Drawing.Size(47, 35);
             this.label33.TabIndex = 26;
             this.label33.Text = "가중치";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1390,9 +1339,9 @@ namespace WindowsFormsApp1_API
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(57, 39);
+            this.button3.Location = new System.Drawing.Point(58, 40);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 30);
+            this.button3.Size = new System.Drawing.Size(47, 29);
             this.button3.TabIndex = 0;
             this.button3.Text = "75%";
             this.button3.UseVisualStyleBackColor = true;
@@ -1402,9 +1351,9 @@ namespace WindowsFormsApp1_API
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(111, 39);
+            this.button5.Location = new System.Drawing.Point(112, 40);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(48, 30);
+            this.button5.Size = new System.Drawing.Size(47, 29);
             this.button5.TabIndex = 0;
             this.button5.Text = "50%";
             this.button5.UseVisualStyleBackColor = true;
@@ -1414,9 +1363,9 @@ namespace WindowsFormsApp1_API
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(165, 39);
+            this.button6.Location = new System.Drawing.Point(166, 40);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(48, 30);
+            this.button6.Size = new System.Drawing.Size(47, 29);
             this.button6.TabIndex = 0;
             this.button6.Text = "25%";
             this.button6.UseVisualStyleBackColor = true;
@@ -1426,9 +1375,9 @@ namespace WindowsFormsApp1_API
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(219, 39);
+            this.button7.Location = new System.Drawing.Point(220, 40);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(48, 30);
+            this.button7.Size = new System.Drawing.Size(47, 29);
             this.button7.TabIndex = 0;
             this.button7.Text = "10%";
             this.button7.UseVisualStyleBackColor = true;
@@ -1438,12 +1387,36 @@ namespace WindowsFormsApp1_API
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(273, 39);
+            this.button8.Location = new System.Drawing.Point(274, 40);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(53, 30);
+            this.button8.Size = new System.Drawing.Size(51, 29);
             this.button8.TabIndex = 0;
             this.button8.Text = "5%";
             this.button8.UseVisualStyleBackColor = true;
+            // 
+            // 종목리스트
+            // 
+            this.종목리스트.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.종목리스트.Controls.Add(this.stockItem1);
+            this.종목리스트.Location = new System.Drawing.Point(1600, 71);
+            this.종목리스트.Name = "종목리스트";
+            this.종목리스트.Size = new System.Drawing.Size(292, 671);
+            this.종목리스트.TabIndex = 31;
+            // 
+            // stockItem1
+            // 
+            this.stockItem1.BackColor = System.Drawing.Color.Transparent;
+            this.stockItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.stockItem1.CurrentPrice = "0";
+            this.stockItem1.DayToDay = "0";
+            this.stockItem1.FluRate = "0";
+            this.stockItem1.Location = new System.Drawing.Point(0, 0);
+            this.stockItem1.Margin = new System.Windows.Forms.Padding(0);
+            this.stockItem1.Name = "stockItem1";
+            this.stockItem1.Size = new System.Drawing.Size(292, 35);
+            this.stockItem1.StockName = "0";
+            this.stockItem1.TabIndex = 0;
+            this.stockItem1.TradingVolume = "0";
             // 
             // Form1
             // 
@@ -1451,13 +1424,13 @@ namespace WindowsFormsApp1_API
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.주_선택);
+            this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.검색창);
             this.Controls.Add(this.검색버튼);
             this.Controls.Add(this.chart2);
@@ -1475,8 +1448,6 @@ namespace WindowsFormsApp1_API
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.종목리스트.ResumeLayout(false);
-            this.종목리스트.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1497,6 +1468,7 @@ namespace WindowsFormsApp1_API
             this.groupBox2.PerformLayout();
             this.주_선택.ResumeLayout(false);
             this.주_선택.PerformLayout();
+            this.종목리스트.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1513,15 +1485,12 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button 검색버튼;
         private System.Windows.Forms.TextBox 검색창;
-        private System.Windows.Forms.TableLayoutPanel 종목리스트;
         private System.Windows.Forms.Label 종목명;
         private System.Windows.Forms.Label 고가;
         private System.Windows.Forms.Label 저가;
         private System.Windows.Forms.Label 전일대비;
         private System.Windows.Forms.Label 거래량;
         private System.Windows.Forms.Label 거래대금;
-        private System.Windows.Forms.Label id1;
-        private System.Windows.Forms.Label id2;
         private System.Windows.Forms.ComboBox 계좌번호콤보;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1555,7 +1524,6 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label22;
@@ -1609,6 +1577,8 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel 종목리스트;
+        private StockItem stockItem1;
     }
 }
 
