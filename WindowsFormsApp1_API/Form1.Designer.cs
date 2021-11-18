@@ -904,14 +904,26 @@ namespace WindowsFormsApp1_API
             // 
             // 매수_가격
             // 
+            this.매수_가격.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.매수_가격.Location = new System.Drawing.Point(38, 108);
+            this.매수_가격.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.매수_가격.Name = "매수_가격";
-            this.매수_가격.Size = new System.Drawing.Size(120, 21);
+            this.매수_가격.Size = new System.Drawing.Size(120, 17);
             this.매수_가격.TabIndex = 28;
+            this.매수_가격.Tag = "123";
             // 
             // 매수_수량
             // 
             this.매수_수량.Location = new System.Drawing.Point(38, 59);
+            this.매수_수량.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.매수_수량.Name = "매수_수량";
             this.매수_수량.Size = new System.Drawing.Size(120, 21);
             this.매수_수량.TabIndex = 27;
