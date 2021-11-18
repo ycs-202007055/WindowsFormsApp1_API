@@ -901,6 +901,7 @@ namespace WindowsFormsApp1_API
             this.매수_현재가.TabIndex = 29;
             this.매수_현재가.Text = "현재가(자동)";
             this.매수_현재가.UseVisualStyleBackColor = true;
+            this.매수_현재가.CheckedChanged += new System.EventHandler(this.매수_현재가_CheckedChanged);
             // 
             // 매수_가격
             // 
