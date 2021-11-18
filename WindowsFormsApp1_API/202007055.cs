@@ -57,7 +57,9 @@ namespace WindowsFormsApp1_API
         }
         private void 매수_매수버튼_Click(object sender, EventArgs e)
         {
-            axKHOpenAPI1.SendOrder("", "0000", 계좌번호콤보.Text, 1, "005380", 1, int.Parse(label21.Text), "00", "");
+            String temp = 현재가.Text.Replace(",", ""); // (텍스트에서 첫번째 인수를 찾고 두번째 인수로 교체 )
+            
+            axKHOpenAPI1.SendOrder("", "0000", 계좌번호콤보.Text, 1, "005380", 1, int.Parse(temp), "00", "");
         }
         private void 매도_매도버튼_Click(object sender, EventArgs e)
         {
