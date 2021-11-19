@@ -53,22 +53,22 @@ namespace WindowsFormsApp1_API
         
         public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         { 
-        
+            
         }
         private void 매수_매수버튼_Click(object sender, EventArgs e)
         {
             String temp = 현재가.Text.Replace(",", ""); // (텍스트에서 첫번째 인수를 찾고 두번째 인수로 교체 )
-            
             axKHOpenAPI1.SendOrder("", "0000", 계좌번호콤보.Text, 1, "005380", 1, int.Parse(temp), "00", "");
         }
+
         private void 매도_매도버튼_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void 매수_현재가_CheckedChanged(object sender, EventArgs e)
         {
-            String temp = 현재가.Text.Replace(",", "");
+            String temp = 현재가.Text.Replace(",","");
             매수_가격.Value = int.Parse(temp);
         }
     }
