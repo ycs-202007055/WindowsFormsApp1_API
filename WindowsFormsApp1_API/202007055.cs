@@ -68,8 +68,12 @@ namespace WindowsFormsApp1_API
 
         private void 매수_현재가_CheckedChanged(object sender, EventArgs e)
         {
-            String temp = 현재가.Text.Replace(",","");
-            매수_가격.Value = int.Parse(temp);
+            String temp = 현재가.Text.Replace(",", "");
+            if (매수_현재가.Checked == true)
+                매수_가격.Value = int.Parse(temp);
+            else
+                매수_가격.Value = 0;
+           
         }
     }
 }
