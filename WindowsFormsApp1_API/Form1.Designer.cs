@@ -1427,11 +1427,16 @@ namespace WindowsFormsApp1_API
             // stockItem1
             // 
             this.stockItem1.BackColor = System.Drawing.Color.Transparent;
+            this.stockItem1.CurrentPrice = "1000";
+            this.stockItem1.DayToDay = "100";
+            this.stockItem1.FluRate = "0.1";
             this.stockItem1.Location = new System.Drawing.Point(0, 0);
             this.stockItem1.Margin = new System.Windows.Forms.Padding(0);
             this.stockItem1.Name = "stockItem1";
-            this.stockItem1.Size = new System.Drawing.Size(294, 49);
+            this.stockItem1.Size = new System.Drawing.Size(294, 42);
+            this.stockItem1.StockName = "현대차";
             this.stockItem1.TabIndex = 0;
+            this.stockItem1.TradingVolume = "100";
             // 
             // Form1
             // 

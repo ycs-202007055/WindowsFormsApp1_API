@@ -15,55 +15,100 @@ namespace WindowsFormsApp1_API
         public StockItem()
         {
             InitializeComponent();
+ 
+
+            StockName = "현대차";
+            CurrentPrice = "1000";
+            FluRate = "0.1";
+            DayToDay = "100";
+            TradingVolume = "100";
+
+
+  
         }
+
+        private string StockName_;      // 주식명
+        private string CurrentPrice_;   // 현재가
+        private string FluRate_;        // 등락률
+        private string DayToDay_;       // 전일대비
+        private string TradingVolume_;  // 거래대금
 
         public string StockName
         {
-            get { return 종목명.Text; }
-            set { 종목명.Text = value; }
+            get { return StockName_; }
+            set 
+            {
+                StockName_ = value;
+                종목명.Text = StockName_; 
+            }
         }
         public string CurrentPrice
         {
-            get { return 현재가.Text; }
+            get { return CurrentPrice_; }
             set 
             {
-               // 현재가.Text = string.Format("{0:#,##0}", int.Parse(value));
+                CurrentPrice_ = value;
+                현재가.Text = string.Format("{0:#,##0}", int.Parse(CurrentPrice_));
             }
         }
+       
+        
+        
         public string FluRate
         {
-            get { return 등락률.Text; }
+            get { return FluRate_; }
             set {
-                float FluRatef = float.Parse(value);
-                if (FluRatef > 0) 등락률.ForeColor = Color.Red;
-                else if (FluRatef < 0) 등락률.ForeColor = Color.Blue;
-                else 등락률.ForeColor = Color.Black;
+                FluRate_ = value;
 
+                float FluRatef = float.Parse(FluRate_);
+                if (FluRatef > 0)
+                {
+                    등락률.ForeColor = Color.Red;
+                    전일대비.ForeColor = Color.Red;
+                    현재가.ForeColor = Color.Red;
+                }
+                else if (FluRatef < 0)
+                {
+                    등락률.ForeColor = Color.Blue;
+                    전일대비.ForeColor = Color.Blue;
+                    현재가.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    등락률.ForeColor = Color.Black;
+                    전일대비.ForeColor = Color.Black;
+                    현재가.ForeColor = Color.Black;
+                }
                 char sign = '\0';
                 if (FluRatef > 0) sign = '+';
                 else if (FluRatef < 0) sign = '-';
 
-                등락률.Text = sign + value + "%";
+                등락률.Text = sign + FluRate_ + "%";
             }
         }
         public string DayToDay
         {
-            get { return 전일대비.Text; }
+            get { return DayToDay_; }
             set {
-                
-                int DayToDayi = (int)float.Parse(value);       
-                string DayToDays = string.Format("{0:#,##0}", DayToDayi);
-                if (DayToDayi > 0) 전일대비.ForeColor = Color.Red;
-                else if (DayToDayi < 0) 전일대비.ForeColor = Color.Blue;
-                else 전일대비.ForeColor = Color.Black;
-
+                DayToDay_ = value;   
+                string DayToDays = string.Format("{0:#,##0}", DayToDay_);
                 전일대비.Text = DayToDays;
             }
         }
         public string TradingVolume
         {
-            get { return 거래대금.Text; }
-            set { 거래대금.Text = string.Format("{0:#,##0}", int.Parse(value)) + "백만"; ; }
+            get { return TradingVolume_; }
+            set 
+            {
+                TradingVolume_ = value;
+                거래대금.Text = string.Format("{0:#,##0}", int.Parse(TradingVolume_)) + "백만";
+            }
+        }
+
+        private void StockItem_Paint(object sender, PaintEventArgs e)
+        {
+            
+
         }
     }
    
