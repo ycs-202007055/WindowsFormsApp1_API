@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace WindowsFormsApp1_API
 {
     partial class Form1
@@ -1491,6 +1493,11 @@ namespace WindowsFormsApp1_API
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void 매수_시장가_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

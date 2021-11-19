@@ -75,5 +75,7 @@ namespace WindowsFormsApp1_API
                 매수_가격.Value = 0;
            
         }
+
+        
     }
 }
