@@ -139,7 +139,7 @@ namespace WindowsFormsApp1_API
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.종목리스트 = new System.Windows.Forms.FlowLayoutPanel();
-            this.stockItem1 = new WindowsFormsApp1_API.StockItem();
+            this.디버그1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -159,7 +159,6 @@ namespace WindowsFormsApp1_API
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.주_선택.SuspendLayout();
-            this.종목리스트.SuspendLayout();
             this.SuspendLayout();
             // 
             // axKHOpenAPI1
@@ -1416,33 +1415,33 @@ namespace WindowsFormsApp1_API
             // 
             // 종목리스트
             // 
+            this.종목리스트.AutoScroll = true;
+            this.종목리스트.AutoScrollMargin = new System.Drawing.Size(50, 100);
+            this.종목리스트.AutoScrollMinSize = new System.Drawing.Size(100, 100);
             this.종목리스트.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.종목리스트.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.종목리스트.Controls.Add(this.stockItem1);
-            this.종목리스트.Location = new System.Drawing.Point(1600, 71);
+            this.종목리스트.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.종목리스트.Location = new System.Drawing.Point(1576, 71);
             this.종목리스트.Name = "종목리스트";
-            this.종목리스트.Size = new System.Drawing.Size(292, 671);
+            this.종목리스트.Size = new System.Drawing.Size(316, 671);
             this.종목리스트.TabIndex = 31;
+            this.종목리스트.WrapContents = false;
             // 
-            // stockItem1
+            // 디버그1
             // 
-            this.stockItem1.BackColor = System.Drawing.Color.Transparent;
-            this.stockItem1.CurrentPrice = "1000";
-            this.stockItem1.DayToDay = "100";
-            this.stockItem1.FluRate = "0.1";
-            this.stockItem1.Location = new System.Drawing.Point(0, 0);
-            this.stockItem1.Margin = new System.Windows.Forms.Padding(0);
-            this.stockItem1.Name = "stockItem1";
-            this.stockItem1.Size = new System.Drawing.Size(294, 42);
-            this.stockItem1.StockName = "현대차";
-            this.stockItem1.TabIndex = 0;
-            this.stockItem1.TradingVolume = "100";
+            this.디버그1.AutoSize = true;
+            this.디버그1.Location = new System.Drawing.Point(1585, 42);
+            this.디버그1.Name = "디버그1";
+            this.디버그1.Size = new System.Drawing.Size(41, 12);
+            this.디버그1.TabIndex = 32;
+            this.디버그1.Text = "디버그";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.디버그1);
             this.Controls.Add(this.주_선택);
             this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.tabControl2);
@@ -1487,7 +1486,6 @@ namespace WindowsFormsApp1_API
             this.groupBox2.PerformLayout();
             this.주_선택.ResumeLayout(false);
             this.주_선택.PerformLayout();
-            this.종목리스트.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1597,7 +1595,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel 종목리스트;
-        private StockItem stockItem1;
+        private System.Windows.Forms.Label 디버그1;
     }
 }
 

@@ -14,17 +14,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1_API
 {
-    public partial class Form1 : Form
+    public partial class Form1 
     {
         void ConstructorA()
         {
             고가.ForeColor = Color.Red;
             저가.ForeColor = Color.Blue;
+
+
         }
 
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            Console.WriteLine("d");
             if (e.sRQName == "종목정보")
             {
                 종목명.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim();
@@ -70,6 +71,7 @@ namespace WindowsFormsApp1_API
 
         void OnEventConnectA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
+            // 주식 정보 표시 ( 차트 오른쪽 )
             axKHOpenAPI1.SetInputValue("종목코드", "005380");
             axKHOpenAPI1.CommRqData("종목정보", "opt10001", 0, "0000");
 
@@ -80,6 +82,17 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
             axKHOpenAPI1.SetInputValue("수정주가구분", "0");
             axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0002");
+
+            // 차트 종목 리스트 표시
+            String[] StockList = axKHOpenAPI1.GetCodeListByMarket("0").Split(';');
+            int count = StockList.Length;
+            for(int i=0; i< 500; i++)
+            {
+                StockItem NewStock = new StockItem();
+                NewStock.StockName = axKHOpenAPI1.GetMasterCodeName(StockList[i]);
+                종목리스트.Controls.Add(NewStock);
+                디버그1.Text = (i + 1) + "/" + count;
+            }
         }
         public void OnReceiveRealDataA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
