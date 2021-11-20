@@ -12,7 +12,7 @@ namespace WindowsFormsApp1_API
 {
     public partial class StockItem : UserControl
     {
-        public StockItem()
+        public StockItem(string StockCode)
         {
             InitializeComponent();
  
@@ -22,6 +22,7 @@ namespace WindowsFormsApp1_API
             FluRate = "0.1";
             DayToDay = "100";
             TradingVolume = "100";
+            this.StockCode = StockCode;
 
 
   
@@ -32,6 +33,7 @@ namespace WindowsFormsApp1_API
         private string FluRate_;        // 등락률
         private string DayToDay_;       // 전일대비
         private string TradingVolume_;  // 거래대금
+        private string StockCode;          // 종목 코드
 
         public string StockName
         {
