@@ -49,12 +49,14 @@ namespace WindowsFormsApp1_API
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
 
+            
         }
         
         public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         { 
             
         }
+
         private void 매수_매수버튼_Click(object sender, EventArgs e)
         {
             String temp = 현재가.Text.Replace(",", ""); // (텍스트에서 첫번째 인수를 찾고 두번째 인수로 교체 )
@@ -75,7 +77,21 @@ namespace WindowsFormsApp1_API
                 매수_가격.Value = 0;
            
         }
+        private void 매수_시장가_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (매수_시장가.Checked == false)
+                {
+                    매수_가격.Value = decimal.Parse(axKHOpenAPI1.GetCommData("005380", "0000", 0, "시장가"));
+                }
+                else
+                {
+                    매수_가격.Value = 0;
+                }
+            }
+            catch { }
+        }
 
-        
     }
 }

@@ -69,10 +69,7 @@ namespace WindowsFormsApp1_API
                 주_선택.Visible = true;
         }
 
-        private void 매수_시장가_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
     }
 }
