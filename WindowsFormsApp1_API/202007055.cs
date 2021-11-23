@@ -105,6 +105,9 @@ namespace WindowsFormsApp1_API
                 매수_가격.Enabled = true;
             }
         }
-
+        private void button15_Click(object sender, EventArgs e)
+        {
+            매수_수량.Value = 0;
+        }
     }
 }
