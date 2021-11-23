@@ -134,5 +134,30 @@ namespace WindowsFormsApp1_API
         {
             매수_수량.Value += 100;
         }
+
+        private void button26_Click(object sender, EventArgs e) // 매수_주_200
+        {
+            매수_수량.Value += 200;
+        }
+
+        private void button25_Click(object sender, EventArgs e) // 매수_주_300
+        {
+            매수_수량.Value += 300;
+        }
+
+        private void button24_Click(object sender, EventArgs e) // 매수_주_400
+        {
+            매수_수량.Value += 400;
+        }
+
+        private void button23_Click(object sender, EventArgs e) // 매수_주_500
+        {
+            매수_수량.Value += 500;
+        }
+
+        private void button22_Click(object sender, EventArgs e) // 매수_주_1000
+        {
+            매수_수량.Value += 1000;
+        }
     }
 }
