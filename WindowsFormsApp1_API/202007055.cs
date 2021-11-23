@@ -105,9 +105,34 @@ namespace WindowsFormsApp1_API
                 매수_가격.Enabled = true;
             }
         }
-        private void button15_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e) // 매수_주_0
         {
             매수_수량.Value = 0;
+        }
+
+        private void button16_Click(object sender, EventArgs e) // 매수_주_1
+        {
+            매수_수량.Value += 1;
+        }
+
+        private void button17_Click(object sender, EventArgs e) // 매수_주_5
+        {
+            매수_수량.Value += 5;
+        }
+
+        private void button18_Click(object sender, EventArgs e) // 매수_주_10
+        {
+            매수_수량.Value += 10;
+        }
+
+        private void button19_Click(object sender, EventArgs e) // 매수_주_50
+        {
+            매수_수량.Value += 50;
+        }
+
+        private void button20_Click(object sender, EventArgs e) // 매수_주_100
+        {
+            매수_수량.Value += 100;
         }
     }
 }
