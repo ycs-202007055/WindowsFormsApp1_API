@@ -1297,6 +1297,7 @@ namespace WindowsFormsApp1_API
             this.button22.TabIndex = 0;
             this.button22.Text = "1000";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button23
             // 
@@ -1309,6 +1310,7 @@ namespace WindowsFormsApp1_API
             this.button23.TabIndex = 0;
             this.button23.Text = "500";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button24
             // 
@@ -1321,6 +1323,7 @@ namespace WindowsFormsApp1_API
             this.button24.TabIndex = 0;
             this.button24.Text = "400";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button25
             // 
@@ -1333,6 +1336,7 @@ namespace WindowsFormsApp1_API
             this.button25.TabIndex = 0;
             this.button25.Text = "300";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button26
             // 
@@ -1345,6 +1349,7 @@ namespace WindowsFormsApp1_API
             this.button26.TabIndex = 0;
             this.button26.Text = "200";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // label33
             // 
