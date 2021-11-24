@@ -16,33 +16,39 @@ namespace WindowsFormsApp1_API
 {
     public partial class Form1 : Form
     {
+
+
+
+
         public class chartdata
         {
-            int now_price;
-            int hight_price;
-            int row_price;
-            int start_price;
+            public AxKHOpenAPILib.AxKHOpenAPI e;
+            public int now_price;
+            public int hight_price;
+            public int row_price;
+            public int start_price;
             DateTime day;
 
+            public chartdata(){}
+
             public chartdata // 생성자
-            (int now_price,
-            int hight_price,
-            int row_price,
-            int start_price,
-            DateTime day)
+            (AxKHOpenAPILib.AxKHOpenAPI e)
             {
-                this.now_price = now_price;
-                this.hight_price = hight_price;
-                this.row_price = row_price;
-                this.start_price = start_price;
-                this.day = day;
+                e = this.e;
+                e.SetInputValue("종목코드", "005380");
+                e.SetInputValue("기준일자", "20211123");
+                e.SetInputValue("수정주가구분", "0");
+                
+            }
+
+            public void chartCall()
+            {
+
+                e.CommRqData("주식일봉차트조회", "opt10081", 0, "0000");
+                //form.axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
+
             }
         };
-
-
-
-
-
 
         void ConstructorB()
         { 
@@ -50,7 +56,8 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.OnEventConnect += OnEventConnect;
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
-            
+
+
         }
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -71,22 +78,21 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommRqData("RQName", "opw00001", 0, "0000");
         }
 
+        chartdata ax(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI);
 
 
-
-        void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e) // CommRQdate()
         {
-            axKHOpenAPI1.SetInputValue("종목코드", "005380");
-            axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
-            axKHOpenAPI1.SetInputValue("수정주가구분", "1");
-            axKHOpenAPI1.CommRqData("주식일봉차트조회요청", "opt10081", 0, "0000");
+            if (axKHOpenAPI1.CommRqData("주식일봉차트조회요청", "opt10081", 0, "0000") >= 0)
+            {
+                label23.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
+            }
+
 
 
 
 
             //-------------------------------------이 밑으로는 if문으로 RQName 구분 넣을 것
-
-
 
         }
         
@@ -200,7 +206,8 @@ namespace WindowsFormsApp1_API
 
         private void 검색버튼_Click(object sender, EventArgs e)
         {
-
+            
+            ax.chartCall();
         }
 
 
