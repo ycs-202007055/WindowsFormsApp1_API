@@ -197,5 +197,17 @@ namespace WindowsFormsApp1_API
         {
             매수_수량.Value += 1000;
         }
+
+        private void 검색버튼_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+
     }
 }
