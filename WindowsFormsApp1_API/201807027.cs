@@ -17,7 +17,6 @@ namespace WindowsFormsApp1_API
     {
         void ConstructorA()
         {
-            
 
 
         }
@@ -88,8 +87,8 @@ namespace WindowsFormsApp1_API
             
 
             // 관심 종목
-            String[] StockList = axKHOpenAPI1.GetCodeListByMarket("0").Split(';');
-            
+            String StockList = axKHOpenAPI1.GetCodeListByMarket("0");
+            axKHOpenAPI1.CommKwRqData(StockList,0,100,0,"종목리스트","0000");
 
             
            
