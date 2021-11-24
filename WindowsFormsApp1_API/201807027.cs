@@ -15,11 +15,9 @@ namespace WindowsFormsApp1_API
 {
     public partial class Form1 
     {
-        private int StockTRNum = 0;     // 관심종목에서 TR요청중인 인덱스
         void ConstructorA()
         {
-            고가.ForeColor = Color.Red;
-            저가.ForeColor = Color.Blue;
+            
 
 
         }
@@ -91,20 +89,7 @@ namespace WindowsFormsApp1_API
 
             // 관심 종목
             String[] StockList = axKHOpenAPI1.GetCodeListByMarket("0").Split(';');
-            int count = Math.Min(StockList.Length, 100);
-            StockItem []StockItemList = new StockItem[101];
             
-            for (int i=0; i< count; i++)
-            {
-                StockItemList[i] = new StockItem(StockList[i]);
-                StockItemList[i].StockName = axKHOpenAPI1.GetMasterCodeName(StockList[i]);
-                //종목리스트.Controls.Add(StockItemList[i]);
-
-                //StockTRNum = i;
-                //axKHOpenAPI1.SetInputValue("종목코드", StockList[i]);
-                //axKHOpenAPI1.CommRqData("관심종목", "opt10001", 0, "0001");
-            }
-            종목리스트.Controls.AddRange(StockItemList);
 
             
            
@@ -143,9 +128,11 @@ namespace WindowsFormsApp1_API
                 else 등락률.ForeColor = Color.Black;
                 등락률.Text = FluRate + "%";
 
+
                 체결강도.Text = axKHOpenAPI1.GetCommRealData(e.sRealKey, 228);
 
                 // 종목 리스트 (관심 종목)
+                /*
                 int count = Math.Min(종목리스트.Controls.Count, 100);
                 for (int i = 0; i < count; i++)
                 {
@@ -154,7 +141,7 @@ namespace WindowsFormsApp1_API
                     ((StockItem)종목리스트.Controls[i]).DayToDay = axKHOpenAPI1.GetCommRealData(e.sRealKey, 11);
                     ((StockItem)종목리스트.Controls[i]).TradingVolume = axKHOpenAPI1.GetCommRealData(e.sRealKey, 17);
 
-                }
+                }*/
             }
         }
 
