@@ -16,6 +16,34 @@ namespace WindowsFormsApp1_API
 {
     public partial class Form1 : Form
     {
+        public class chartdata
+        {
+            int now_price;
+            int hight_price;
+            int row_price;
+            int start_price;
+            DateTime day;
+
+            public chartdata // 생성자
+            (int now_price,
+            int hight_price,
+            int row_price,
+            int start_price,
+            DateTime day)
+            {
+                this.now_price = now_price;
+                this.hight_price = hight_price;
+                this.row_price = row_price;
+                this.start_price = start_price;
+                this.day = day;
+            }
+        };
+
+
+
+
+
+
         void ConstructorB()
         { 
             label10.Text = "test";
@@ -48,8 +76,18 @@ namespace WindowsFormsApp1_API
 
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
+            axKHOpenAPI1.SetInputValue("종목코드", "005380");
+            axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
+            axKHOpenAPI1.SetInputValue("수정주가구분", "1");
+            axKHOpenAPI1.CommRqData("주식일봉차트조회요청", "opt10081", 0, "0000");
 
-            
+
+
+
+            //-------------------------------------이 밑으로는 if문으로 RQName 구분 넣을 것
+
+
+
         }
         
         public void OnReceiveRealDataB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
