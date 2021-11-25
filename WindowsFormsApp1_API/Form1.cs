@@ -67,5 +67,6 @@ namespace WindowsFormsApp1_API
                 주_선택.Visible = true;
         }
 
+        
     }
 }

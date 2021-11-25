@@ -437,6 +437,7 @@ namespace WindowsFormsApp1_API
             this.label9.TabIndex = 19;
             this.label9.Text = "예수금 값";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label6
             // 
