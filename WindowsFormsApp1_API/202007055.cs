@@ -146,7 +146,7 @@ namespace WindowsFormsApp1_API
                 label26.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "평가금액")));
                 label28.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익금액")));
                 label30.Text = (float.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익율")) / (float)10000).ToString();
-                label32.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "추정예탁자산")));
+                label32.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "추정예탁자산"))); // 뭔가 조금 안맞음
             }
 
             //-------------------------------------이 밑으로는 if문으로 RQName 구분 넣을 것
