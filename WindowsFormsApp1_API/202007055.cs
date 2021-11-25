@@ -17,7 +17,7 @@ namespace WindowsFormsApp1_API
     public partial class Form1 : Form
     {
 
-
+        chartdata ax;
 
 
         public class chartdata
@@ -29,12 +29,11 @@ namespace WindowsFormsApp1_API
             public int start_price;
             DateTime day;
 
-            public chartdata(){}
 
             public chartdata // 생성자
             (AxKHOpenAPILib.AxKHOpenAPI e)
             {
-                e = this.e;
+                this.e = e;
                 e.SetInputValue("종목코드", "005380");
                 e.SetInputValue("기준일자", "20211123");
                 e.SetInputValue("수정주가구분", "0");
@@ -57,7 +56,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
 
-
+            ax = new chartdata(axKHOpenAPI1);
         }
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -78,7 +77,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommRqData("RQName", "opw00001", 0, "0000");
         }
 
-        chartdata ax(AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI);
+   
 
 
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e) // CommRQdate()
