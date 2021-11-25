@@ -17,35 +17,32 @@ namespace WindowsFormsApp1_API
     public partial class Form1 : Form
     {
 
-        chartdata ax;
+        chartdata chart; // 차트 출력 클래스 생성
 
 
         public class chartdata
         {
             public AxKHOpenAPILib.AxKHOpenAPI e;
-            public int now_price;
-            public int hight_price;
-            public int row_price;
-            public int start_price;
-            DateTime day;
+            public int now_price; // 현재가
+            public int hight_price; // 고가
+            public int row_price; // 저가
+            public int start_price; // 시가
+            public String day; // 일자
 
 
             public chartdata // 생성자
             (AxKHOpenAPILib.AxKHOpenAPI e)
             {
                 this.e = e;
-                e.SetInputValue("종목코드", "005380");
-                e.SetInputValue("기준일자", "20211123");
-                e.SetInputValue("수정주가구분", "0");
-                
             }
 
             public void chartCall()
             {
-
-                e.CommRqData("주식일봉차트조회", "opt10081", 0, "0000");
-                //form.axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
-
+                e.SetInputValue("종목코드", "005380");
+                e.SetInputValue("기준일자", "20211123");
+                e.SetInputValue("수정주가구분", "0");
+                e.CommRqData("chart", "opt10081", 0, "0000"); // ("내가 지정한 Rq이름", tr, 0, "화면번호");
+                //e.CommData(e.sTrCode, e.sRQName, 0, "현재가");
             }
         };
 
@@ -56,7 +53,7 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
 
-            ax = new chartdata(axKHOpenAPI1);
+            chart = new chartdata(axKHOpenAPI1); // 차트출력 클래스 생성
         }
 
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -82,11 +79,23 @@ namespace WindowsFormsApp1_API
 
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e) // CommRQdate()
         {
-            if (axKHOpenAPI1.CommRqData("주식일봉차트조회요청", "opt10081", 0, "0000") >= 0)
+            if (e.sRQName == "chart")
             {
-                label23.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
-            }
+                chart.now_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가")); // 현재가
+                chart.hight_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "고가")); // 고가
+                chart.row_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "저가"));   // 저가
+                chart.start_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "시가")); // 시가
+                chart.day = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "일자");                    // 일자
 
+                chart1.Series["price"].YValueMembers = "now_price,row_price,hight_price";
+                chart1.Series["price"].XValueMember = "day";
+
+                chart1.Series["price"].Points.Add(chart.now_price);
+                chart1.Series["price"].Points.Add(chart.row_price);
+                chart1.Series["price"].Points.Add(chart.hight_price);
+
+                
+            }
 
 
 
@@ -205,8 +214,7 @@ namespace WindowsFormsApp1_API
 
         private void 검색버튼_Click(object sender, EventArgs e)
         {
-            
-            ax.chartCall();
+            chart.chartCall();
         }
 
 
