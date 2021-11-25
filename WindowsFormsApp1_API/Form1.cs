@@ -49,8 +49,6 @@ namespace WindowsFormsApp1_API
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // comboBox2_SelectedIndexChangedA(object, e);
-           // comboBox2_SelectedIndexChangedB(object, e);
         }
 
         private void 매수_주_Click(object sender, EventArgs e)
@@ -69,6 +67,5 @@ namespace WindowsFormsApp1_API
                 주_선택.Visible = true;
         }
 
-        
     }
 }

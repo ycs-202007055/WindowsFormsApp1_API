@@ -68,7 +68,7 @@ namespace WindowsFormsApp1_API
             this.전일대비 = new System.Windows.Forms.Label();
             this.거래량 = new System.Windows.Forms.Label();
             this.거래대금 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.종목정보 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -138,14 +138,18 @@ namespace WindowsFormsApp1_API
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.종목리스트 = new WindowsFormsApp1_API.DoubleBufferedFlow();
+            this.종목리스트 = new System.Windows.Forms.DataGridView();
+            this.종목리스트_분류 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_종목명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_현재가 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_전일대비 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_거래대금 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.종목정보.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -159,6 +163,7 @@ namespace WindowsFormsApp1_API
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.주_선택.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.종목리스트)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI1
@@ -504,6 +509,7 @@ namespace WindowsFormsApp1_API
             | System.Windows.Forms.AnchorStyles.Right)));
             this.고가.AutoSize = true;
             this.고가.Font = new System.Drawing.Font("굴림", 9F);
+            this.고가.ForeColor = System.Drawing.Color.Red;
             this.고가.Location = new System.Drawing.Point(63, 45);
             this.고가.Name = "고가";
             this.고가.Size = new System.Drawing.Size(54, 45);
@@ -518,6 +524,7 @@ namespace WindowsFormsApp1_API
             | System.Windows.Forms.AnchorStyles.Right)));
             this.저가.AutoSize = true;
             this.저가.Font = new System.Drawing.Font("굴림", 9F);
+            this.저가.ForeColor = System.Drawing.Color.Blue;
             this.저가.Location = new System.Drawing.Point(63, 135);
             this.저가.Name = "저가";
             this.저가.Size = new System.Drawing.Size(54, 48);
@@ -567,16 +574,17 @@ namespace WindowsFormsApp1_API
             this.거래대금.Text = "거래대금";
             this.거래대금.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // 종목정보
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox1.Controls.Add(this.종목명);
-            this.groupBox1.Location = new System.Drawing.Point(1161, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 233);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.종목정보.Controls.Add(this.tableLayoutPanel2);
+            this.종목정보.Controls.Add(this.종목명);
+            this.종목정보.Font = new System.Drawing.Font("굴림", 11F);
+            this.종목정보.Location = new System.Drawing.Point(1161, 28);
+            this.종목정보.Name = "종목정보";
+            this.종목정보.Size = new System.Drawing.Size(250, 233);
+            this.종목정보.TabIndex = 22;
+            this.종목정보.TabStop = false;
+            this.종목정보.Text = "005830";
             // 
             // tableLayoutPanel2
             // 
@@ -1433,35 +1441,79 @@ namespace WindowsFormsApp1_API
             this.button8.Text = "5%";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1470, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 12);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "label3";
-            // 
             // 종목리스트
             // 
-            this.종목리스트.AutoScroll = true;
-            this.종목리스트.AutoScrollMargin = new System.Drawing.Size(50, 100);
-            this.종목리스트.AutoScrollMinSize = new System.Drawing.Size(100, 100);
-            this.종목리스트.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.종목리스트.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.종목리스트.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.종목리스트.Location = new System.Drawing.Point(1576, 71);
+            this.종목리스트.AllowUserToAddRows = false;
+            this.종목리스트.AllowUserToDeleteRows = false;
+            this.종목리스트.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.종목리스트.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.종목리스트.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.종목리스트_분류,
+            this.종목리스트_종목명,
+            this.종목리스트_현재가,
+            this.종목리스트_전일대비,
+            this.종목리스트_거래대금});
+            this.종목리스트.Font = new System.Drawing.Font("굴림", 8F);
+            this.종목리스트.Location = new System.Drawing.Point(1567, 75);
+            this.종목리스트.MultiSelect = false;
             this.종목리스트.Name = "종목리스트";
-            this.종목리스트.Size = new System.Drawing.Size(316, 671);
-            this.종목리스트.TabIndex = 31;
-            this.종목리스트.WrapContents = false;
+            this.종목리스트.ReadOnly = true;
+            this.종목리스트.RowHeadersVisible = false;
+            this.종목리스트.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.종목리스트.RowTemplate.Height = 23;
+            this.종목리스트.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.종목리스트.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.종목리스트.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.종목리스트.Size = new System.Drawing.Size(325, 556);
+            this.종목리스트.TabIndex = 33;
+            this.종목리스트.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.종목리스트_CellClick);
+            // 
+            // 종목리스트_분류
+            // 
+            this.종목리스트_분류.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.종목리스트_분류.HeaderText = "분";
+            this.종목리스트_분류.Name = "종목리스트_분류";
+            this.종목리스트_분류.ReadOnly = true;
+            this.종목리스트_분류.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.종목리스트_분류.Width = 23;
+            // 
+            // 종목리스트_종목명
+            // 
+            this.종목리스트_종목명.FillWeight = 139.5349F;
+            this.종목리스트_종목명.HeaderText = "종목명";
+            this.종목리스트_종목명.Name = "종목리스트_종목명";
+            this.종목리스트_종목명.ReadOnly = true;
+            this.종목리스트_종목명.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 종목리스트_현재가
+            // 
+            this.종목리스트_현재가.FillWeight = 86.82169F;
+            this.종목리스트_현재가.HeaderText = "현재가";
+            this.종목리스트_현재가.Name = "종목리스트_현재가";
+            this.종목리스트_현재가.ReadOnly = true;
+            this.종목리스트_현재가.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 종목리스트_전일대비
+            // 
+            this.종목리스트_전일대비.FillWeight = 86.82169F;
+            this.종목리스트_전일대비.HeaderText = "전일대비";
+            this.종목리스트_전일대비.Name = "종목리스트_전일대비";
+            this.종목리스트_전일대비.ReadOnly = true;
+            this.종목리스트_전일대비.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 종목리스트_거래대금
+            // 
+            this.종목리스트_거래대금.FillWeight = 86.82169F;
+            this.종목리스트_거래대금.HeaderText = "거래대금";
+            this.종목리스트_거래대금.Name = "종목리스트_거래대금";
+            this.종목리스트_거래대금.ReadOnly = true;
+            this.종목리스트_거래대금.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.주_선택);
             this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.tabControl2);
@@ -1469,7 +1521,7 @@ namespace WindowsFormsApp1_API
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.종목정보);
             this.Controls.Add(this.검색창);
             this.Controls.Add(this.검색버튼);
             this.Controls.Add(this.chart2);
@@ -1486,8 +1538,8 @@ namespace WindowsFormsApp1_API
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.종목정보.ResumeLayout(false);
+            this.종목정보.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1506,6 +1558,7 @@ namespace WindowsFormsApp1_API
             this.groupBox2.PerformLayout();
             this.주_선택.ResumeLayout(false);
             this.주_선택.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.종목리스트)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1530,7 +1583,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Label 거래량;
         private System.Windows.Forms.Label 거래대금;
         private System.Windows.Forms.ComboBox 계좌번호콤보;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox 종목정보;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox 매수_시장가;
@@ -1614,8 +1667,12 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private DoubleBufferedFlow 종목리스트;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView 종목리스트;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_분류;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목명;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_현재가;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_전일대비;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_거래대금;
     }
 }
 

@@ -13,17 +13,36 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1_API
 {
+    
     public partial class Form1 
     {
-        private int StockTRNum = 0;     // 관심종목에서 TR요청중인 인덱스
+        public String[] StockListArr;
+
         void ConstructorA()
         {
-            고가.ForeColor = Color.Red;
-            저가.ForeColor = Color.Blue;
-
 
         }
 
+
+        // *************************************************************************************
+        //                                  로그인 이벤트
+        // ************************************************************************************
+        void OnEventConnectA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
+        {
+            UpdateStockInfo("005830");
+            
+
+            // 관심 종목
+            string StockList = axKHOpenAPI1.GetCodeListByMarket("0");
+            StockListArr = StockList.Split(';');
+            int StockCount = Math.Min(StockListArr.Length - 1, 100);
+            
+            axKHOpenAPI1.CommKwRqData(StockList,0,StockCount,0,"종목리스트","0000");
+
+        }
+        // *************************************************************************************
+        //                                  TR데이터 수신 이벤트
+        // ************************************************************************************
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
             if (e.sRQName == "종목정보")
@@ -55,61 +74,42 @@ namespace WindowsFormsApp1_API
                 else 등락률.ForeColor = Color.Black;
                 등락률.Text = FluRate + "%";
 
-
-
+                
             }
             else if (e.sRQName == "종목정보_거래대금")
             {
                 int Trading_Value = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "거래대금"));
                 거래대금.Text = string.Format("{0:#,##0}", Trading_Value);
             }
-            else if(e.sRQName == "체결정보")
+            else if (e.sRQName == "체결정보")
             {
                 체결강도.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "체결강도");
             }
-            else if(e.sRQName == "관심종목")
+
+            // ********************
+            // 종목 리스트
+            // ********************
+            if (e.sRQName == "종목리스트")
             {
-                //((StockItem)종목리스트.Controls[StockTRNum]).CurrentPrice = "48449";
-                //label3.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
+                종목리스트.Rows.Clear();
+                int StockCount = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
+                if (StockCount <= 0) return;
+
+                for (int i = 0; i < 100; i++)
+                {
+                    int index = 종목리스트.Rows.Add();
+                    종목리스트["종목리스트_거래대금", index].Value = index.ToString();
+                    종목리스트["종목리스트_종목명", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    종목리스트["종목리스트_현재가", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+
+                }
             }
         }
 
-        void OnEventConnectA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
-        {
-            // 주식 정보 표시 ( 차트 오른쪽 )
-            axKHOpenAPI1.SetInputValue("종목코드", "005380");
-            axKHOpenAPI1.CommRqData("종목정보", "opt10001", 0, "0000");
 
-            axKHOpenAPI1.SetInputValue("종목코드", "005380");
-            axKHOpenAPI1.CommRqData("체결정보", "opt10003", 0, "0000");
-
-            axKHOpenAPI1.SetInputValue("종목코드", "005380");
-            axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
-            axKHOpenAPI1.SetInputValue("수정주가구분", "0");
-            axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0000");
-            
-
-            // 관심 종목
-            String[] StockList = axKHOpenAPI1.GetCodeListByMarket("0").Split(';');
-            int count = Math.Min(StockList.Length, 100);
-            StockItem []StockItemList = new StockItem[101];
-            
-            for (int i=0; i< count; i++)
-            {
-                StockItemList[i] = new StockItem(StockList[i]);
-                StockItemList[i].StockName = axKHOpenAPI1.GetMasterCodeName(StockList[i]);
-                //종목리스트.Controls.Add(StockItemList[i]);
-
-                //StockTRNum = i;
-                //axKHOpenAPI1.SetInputValue("종목코드", StockList[i]);
-                //axKHOpenAPI1.CommRqData("관심종목", "opt10001", 0, "0001");
-            }
-            종목리스트.Controls.AddRange(StockItemList);
-
-            
-           
-
-        }
+        // *************************************************************************************
+        //                                  실시간 데이터 이벤트
+        // ************************************************************************************
         public void OnReceiveRealDataA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
             if (e.sRealType == "주식체결")
@@ -143,19 +143,36 @@ namespace WindowsFormsApp1_API
                 else 등락률.ForeColor = Color.Black;
                 등락률.Text = FluRate + "%";
 
+
                 체결강도.Text = axKHOpenAPI1.GetCommRealData(e.sRealKey, 228);
 
-                // 종목 리스트 (관심 종목)
-                int count = Math.Min(종목리스트.Controls.Count, 100);
-                for (int i = 0; i < count; i++)
-                {
-                    ((StockItem)종목리스트.Controls[i]).CurrentPrice = axKHOpenAPI1.GetCommRealData(e.sRealKey, 10);
-                    ((StockItem)종목리스트.Controls[i]).FluRate = axKHOpenAPI1.GetCommRealData(e.sRealKey, 12);
-                    ((StockItem)종목리스트.Controls[i]).DayToDay = axKHOpenAPI1.GetCommRealData(e.sRealKey, 11);
-                    ((StockItem)종목리스트.Controls[i]).TradingVolume = axKHOpenAPI1.GetCommRealData(e.sRealKey, 17);
 
-                }
             }
+        }
+
+        private void 종목리스트_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index >= StockListArr.Length || index < 0) return;
+            UpdateStockInfo(StockListArr[e.RowIndex]);
+        }
+
+        // 선택중인 종목 정보를 변경
+        public void UpdateStockInfo(string StockCode)
+        {
+            // 주식 정보 표시 ( 차트 오른쪽 )
+            axKHOpenAPI1.SetInputValue("종목코드", StockCode);
+            axKHOpenAPI1.CommRqData("종목정보", "opt10001", 0, "0000");
+
+            axKHOpenAPI1.SetInputValue("종목코드", StockCode);
+            axKHOpenAPI1.CommRqData("체결정보", "opt10003", 0, "0000");
+
+            axKHOpenAPI1.SetInputValue("종목코드", StockCode);
+            axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
+            axKHOpenAPI1.SetInputValue("수정주가구분", "0");
+            axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0000");
+
+            종목정보.Text = StockCode;
         }
 
     }
