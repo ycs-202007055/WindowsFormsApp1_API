@@ -18,8 +18,43 @@ namespace WindowsFormsApp1_API
     {
 
         chartdata chart; // 차트 출력 클래스 생성
+        
+        //
+        // 계좌별주문체결현황요청
+        //
 
 
+
+
+
+
+
+
+        //
+        // 접속 하자마자 예수금, 종목들 세팅 (계좌평가현황요청)
+        //
+        public void Account_setting(AxKHOpenAPILib.AxKHOpenAPI e)
+        {
+            //계좌번호 = 전문 조회할 보유계좌번호
+             e.SetInputValue("계좌번호", 계좌번호콤보.Text);
+            //비밀번호 = 사용안함(공백)
+            e.SetInputValue("비밀번호", "");
+            //상장폐지조회구분 = 0:전체, 1:상장폐지종목제외
+            e.SetInputValue("상장폐지조회구분", "1");
+            //비밀번호입력매체구분 = 00
+            e.SetInputValue("비밀번호입력매체구분", "00");
+
+            e.CommRqData("계좌초기화", "OPW00004", 0, "0000");
+        }
+
+
+
+
+
+
+        //
+        // 차트 클래스, 함수
+        //
         public class chartdata
         {
             public AxKHOpenAPILib.AxKHOpenAPI e;
@@ -48,14 +83,18 @@ namespace WindowsFormsApp1_API
 
         void ConstructorB()
         { 
-            label10.Text = "test";
+            
             axKHOpenAPI1.OnEventConnect += OnEventConnect;
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
 
+            
             chart = new chartdata(axKHOpenAPI1); // 차트출력 클래스 생성
         }
 
+        //
+        // 로그인 이벤트
+        //
         public void OnEventConnectB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
             String[] Acount = axKHOpenAPI1.GetLoginInfo("ACCLIST").Split(';');
@@ -72,6 +111,9 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.SetInputValue("비밀번호입력매체구분", "00");
             axKHOpenAPI1.SetInputValue("조회구분", "2");
             axKHOpenAPI1.CommRqData("RQName", "opw00001", 0, "0000");
+
+
+            Account_setting(axKHOpenAPI1);
         }
 
    
@@ -94,11 +136,18 @@ namespace WindowsFormsApp1_API
                 chart1.Series["price"].Points.Add(chart.row_price);
                 chart1.Series["price"].Points.Add(chart.hight_price);
 
-                
+
             }
-
-
-
+            else if (e.sRQName == "계좌초기화")
+            {
+                label9.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "예수금")));
+                label24.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "D+2추정예수금")));
+                label10.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "총매입금액")));
+                label26.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "평가금액")));
+                label28.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익금액")));
+                label30.Text = (float.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익율")) / (float)10000).ToString();
+                label32.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "추정예탁자산")));
+            }
 
             //-------------------------------------이 밑으로는 if문으로 RQName 구분 넣을 것
 
