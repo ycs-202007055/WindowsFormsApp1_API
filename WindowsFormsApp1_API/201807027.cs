@@ -100,7 +100,22 @@ namespace WindowsFormsApp1_API
                     int index = 종목리스트.Rows.Add();
                     종목리스트["종목리스트_거래대금", index].Value = index.ToString();
                     종목리스트["종목리스트_종목명", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-                    종목리스트["종목리스트_현재가", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+
+                    int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가"));
+                    종목리스트["종목리스트_현재가", index].Value = string.Format("{0:#,##0}", Math.Abs(CurrentPrice));
+
+                    int DaytoDay = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "전일대비"));
+                    if (DaytoDay > 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Red;
+                    else if (DaytoDay < 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Blue;
+                    else 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Black;
+                    종목리스트["종목리스트_전일대비", index].Value = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
+
+                    string FluRate = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "등락율").Trim();
+                    float FluRatef = float.Parse(FluRate);
+                    if (FluRatef > 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Red;
+                    else if (FluRatef < 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Blue;
+                    else 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Black;
+                    종목리스트["종목리스트_등락률", index].Value = FluRate + "%";
 
                 }
             }

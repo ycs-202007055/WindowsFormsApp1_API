@@ -32,12 +32,12 @@ namespace WindowsFormsApp1_API
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -142,8 +142,11 @@ namespace WindowsFormsApp1_API
             this.종목리스트_분류 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_종목명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_현재가 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_등락률 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_전일대비 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_거래대금 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -193,24 +196,24 @@ namespace WindowsFormsApp1_API
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.CursorX.IsUserEnabled = true;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.CursorX.IsUserEnabled = true;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(246, 27);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series1.Legend = "Legend1";
-            series1.MarkerImageTransparentColor = System.Drawing.Color.White;
-            series1.MarkerSize = 50;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "price";
-            series1.YValuesPerPoint = 10;
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series3.Legend = "Legend1";
+            series3.MarkerImageTransparentColor = System.Drawing.Color.White;
+            series3.MarkerSize = 50;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series3.Name = "price";
+            series3.YValuesPerPoint = 10;
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(909, 469);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
@@ -218,16 +221,16 @@ namespace WindowsFormsApp1_API
             // chart2
             // 
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(246, 493);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart2.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(909, 138);
             this.chart2.TabIndex = 11;
             this.chart2.Text = "chart2";
@@ -1124,6 +1127,7 @@ namespace WindowsFormsApp1_API
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.계좌번호콤보);
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
@@ -1451,10 +1455,11 @@ namespace WindowsFormsApp1_API
             this.종목리스트_분류,
             this.종목리스트_종목명,
             this.종목리스트_현재가,
+            this.종목리스트_등락률,
             this.종목리스트_전일대비,
             this.종목리스트_거래대금});
             this.종목리스트.Font = new System.Drawing.Font("굴림", 8F);
-            this.종목리스트.Location = new System.Drawing.Point(1567, 75);
+            this.종목리스트.Location = new System.Drawing.Point(1413, 28);
             this.종목리스트.MultiSelect = false;
             this.종목리스트.Name = "종목리스트";
             this.종목리스트.ReadOnly = true;
@@ -1464,7 +1469,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.종목리스트.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.종목리스트.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.종목리스트.Size = new System.Drawing.Size(325, 556);
+            this.종목리스트.Size = new System.Drawing.Size(459, 545);
             this.종목리스트.TabIndex = 33;
             this.종목리스트.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.종목리스트_CellClick);
             // 
@@ -1483,7 +1488,6 @@ namespace WindowsFormsApp1_API
             this.종목리스트_종목명.HeaderText = "종목명";
             this.종목리스트_종목명.Name = "종목리스트_종목명";
             this.종목리스트_종목명.ReadOnly = true;
-            this.종목리스트_종목명.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // 종목리스트_현재가
             // 
@@ -1491,7 +1495,12 @@ namespace WindowsFormsApp1_API
             this.종목리스트_현재가.HeaderText = "현재가";
             this.종목리스트_현재가.Name = "종목리스트_현재가";
             this.종목리스트_현재가.ReadOnly = true;
-            this.종목리스트_현재가.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // 종목리스트_등락률
+            // 
+            this.종목리스트_등락률.HeaderText = "등락률";
+            this.종목리스트_등락률.Name = "종목리스트_등락률";
+            this.종목리스트_등락률.ReadOnly = true;
             // 
             // 종목리스트_전일대비
             // 
@@ -1499,7 +1508,6 @@ namespace WindowsFormsApp1_API
             this.종목리스트_전일대비.HeaderText = "전일대비";
             this.종목리스트_전일대비.Name = "종목리스트_전일대비";
             this.종목리스트_전일대비.ReadOnly = true;
-            this.종목리스트_전일대비.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // 종목리스트_거래대금
             // 
@@ -1507,13 +1515,30 @@ namespace WindowsFormsApp1_API
             this.종목리스트_거래대금.HeaderText = "거래대금";
             this.종목리스트_거래대금.Name = "종목리스트_거래대금";
             this.종목리스트_거래대금.ReadOnly = true;
-            this.종목리스트_거래대금.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(454, 38);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(86, 16);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(1868, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(36, 1041);
+            this.panel1.TabIndex = 31;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.주_선택);
             this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.tabControl2);
@@ -1671,8 +1696,11 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_분류;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목명;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_현재가;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_등락률;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_전일대비;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_거래대금;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
