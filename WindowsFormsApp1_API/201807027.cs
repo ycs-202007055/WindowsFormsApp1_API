@@ -16,11 +16,10 @@ namespace WindowsFormsApp1_API
     
     public partial class Form1 
     {
-        public String[] StockListArr;
 
         void ConstructorA()
         {
-
+            종목리스트.SortCompare += customSortCompare;
         }
 
 
@@ -34,8 +33,7 @@ namespace WindowsFormsApp1_API
 
             // 관심 종목
             string StockList = axKHOpenAPI1.GetCodeListByMarket("0");
-            StockListArr = StockList.Split(';');
-            int StockCount = Math.Min(StockListArr.Length - 1, 100);
+            int StockCount = Math.Min(StockList.Split(';').Length - 1, 100);
             
             axKHOpenAPI1.CommKwRqData(StockList,0,StockCount,0,"종목리스트","0000");
 
@@ -62,19 +60,28 @@ namespace WindowsFormsApp1_API
                 거래량.Text = string.Format("{0:#,##0}", Trading_Volume);
 
                 int DaytoDay = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "전일대비"));
-                if (DaytoDay > 0) 전일대비.ForeColor = Color.Red;
-                else if (DaytoDay < 0) 전일대비.ForeColor = Color.Blue;
-                else 전일대비.ForeColor = Color.Black;
+                if (DaytoDay > 0)
+                {
+                    전일대비.ForeColor = Color.Red;
+                    등락률.ForeColor = Color.Red;
+                }
+                else if (DaytoDay < 0)
+                {
+                    전일대비.ForeColor = Color.Blue;
+                    등락률.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    전일대비.ForeColor = Color.Black;
+                    등락률.ForeColor = Color.Black;
+                }
                 전일대비.Text = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
 
-                string FluRate = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "등락율");
-                float FluRatef = float.Parse(FluRate);
-                if (FluRatef > 0) 등락률.ForeColor = Color.Red;
-                else if (FluRatef < 0) 등락률.ForeColor = Color.Blue;
-                else 등락률.ForeColor = Color.Black;
-                등락률.Text = FluRate + "%";
+                등락률.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "등락율") + "%";
 
                 
+
+
             }
             else if (e.sRQName == "종목정보_거래대금")
             {
@@ -97,6 +104,7 @@ namespace WindowsFormsApp1_API
 
                 for (int i = 0; i < 100; i++)
                 {
+                    
                     int index = 종목리스트.Rows.Add();
                     종목리스트["종목리스트_거래대금", index].Value = index.ToString();
                     종목리스트["종목리스트_종목명", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
@@ -116,6 +124,8 @@ namespace WindowsFormsApp1_API
                     else if (FluRatef < 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Blue;
                     else 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Black;
                     종목리스트["종목리스트_등락률", index].Value = FluRate + "%";
+
+                    종목리스트["종목리스트_종목코드", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
 
                 }
             }
@@ -168,8 +178,9 @@ namespace WindowsFormsApp1_API
         private void 종목리스트_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index >= StockListArr.Length || index < 0) return;
-            UpdateStockInfo(StockListArr[e.RowIndex]);
+            if (index < 0) return;
+            //label13.Text = 종목리스트["종목리스트_종목코드", index].Value.ToString();
+            UpdateStockInfo(종목리스트["종목리스트_종목코드", index].Value.ToString());
         }
 
         // 선택중인 종목 정보를 변경
@@ -188,6 +199,37 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0000");
 
             종목정보.Text = StockCode;
+        }
+
+
+        private void customSortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            switch(e.Column.Index)
+            {
+                case 1:
+                    {
+                        string s_a = e.CellValue1.ToString();
+                        string s_b = e.CellValue2.ToString();
+                        e.SortResult = s_a.CompareTo(s_b);
+                    }
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    {
+
+                        float f_a = float.Parse(string.Join("", e.CellValue1.ToString().Split(',','%')));
+                        float f_b = float.Parse(string.Join("", e.CellValue2.ToString().Split(',', '%')));
+                        e.SortResult = f_a.CompareTo(f_b);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            e.Handled = true;
+
         }
 
     }

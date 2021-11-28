@@ -117,6 +117,7 @@ namespace WindowsFormsApp1_API
             this.계좌_평가손익 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.계좌_수익 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.주_선택 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
@@ -139,14 +140,14 @@ namespace WindowsFormsApp1_API
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.종목리스트 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.종목리스트_분류 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_종목명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_현재가 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_등락률 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_전일대비 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_거래대금 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.종목리스트_종목코드 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -1138,6 +1139,16 @@ namespace WindowsFormsApp1_API
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(454, 38);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(86, 16);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -1457,7 +1468,8 @@ namespace WindowsFormsApp1_API
             this.종목리스트_현재가,
             this.종목리스트_등락률,
             this.종목리스트_전일대비,
-            this.종목리스트_거래대금});
+            this.종목리스트_거래대금,
+            this.종목리스트_종목코드});
             this.종목리스트.Font = new System.Drawing.Font("굴림", 8F);
             this.종목리스트.Location = new System.Drawing.Point(1413, 28);
             this.종목리스트.MultiSelect = false;
@@ -1472,6 +1484,13 @@ namespace WindowsFormsApp1_API
             this.종목리스트.Size = new System.Drawing.Size(459, 545);
             this.종목리스트.TabIndex = 33;
             this.종목리스트.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.종목리스트_CellClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(1868, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(36, 1041);
+            this.panel1.TabIndex = 31;
             // 
             // 종목리스트_분류
             // 
@@ -1516,22 +1535,12 @@ namespace WindowsFormsApp1_API
             this.종목리스트_거래대금.Name = "종목리스트_거래대금";
             this.종목리스트_거래대금.ReadOnly = true;
             // 
-            // checkBox1
+            // 종목리스트_종목코드
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(454, 38);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 16);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(1868, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(36, 1041);
-            this.panel1.TabIndex = 31;
+            this.종목리스트_종목코드.HeaderText = "종목코드";
+            this.종목리스트_종목코드.Name = "종목리스트_종목코드";
+            this.종목리스트_종목코드.ReadOnly = true;
+            this.종목리스트_종목코드.Visible = false;
             // 
             // Form1
             // 
@@ -1693,14 +1702,15 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView 종목리스트;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_분류;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목명;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_현재가;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_등락률;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_전일대비;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_거래대금;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목코드;
     }
 }
 
