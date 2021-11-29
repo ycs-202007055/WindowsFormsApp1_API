@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 
 // https://wikidocs.net/17615
-
+// 8011216111
 
 namespace WindowsFormsApp1_API
 {
@@ -31,7 +31,7 @@ namespace WindowsFormsApp1_API
 
 
         //
-        // 접속 하자마자 예수금, 종목들 세팅 (계좌평가현황요청)
+        // 접속 하자마자 예수금, 종목들 세팅 (계좌초기화 ,계좌평가현황요청)
         //
         public void Account_setting(AxKHOpenAPILib.AxKHOpenAPI e)
         {
@@ -44,7 +44,21 @@ namespace WindowsFormsApp1_API
             //비밀번호입력매체구분 = 00
             e.SetInputValue("비밀번호입력매체구분", "00");
 
-            e.CommRqData("계좌초기화", "OPW00004", 0, "0000");
+            //계좌번호
+            e.SetInputValue("계좌번호", "8011216111");
+            // 비밀번호 = ""(공백)
+            e.SetInputValue("비밀번호", "");
+            //상장폐지조회구분 = 0:전체, 1:상장폐지종목제외
+            e.SetInputValue("상장폐지조회구분", "1");
+            //비밀번호입력매체구분 = 00
+            e.SetInputValue("비밀번호입력매체구분", "00");
+
+            e.CommRqData("계좌초기화1", "OPW00004", 0, "0000");
+
+
+
+            e.SetInputValue("계좌번호", "8011216111");
+            e.CommRqData("계좌초기화2", "opw00018", 0, "0000");
         }
 
 
@@ -138,16 +152,34 @@ namespace WindowsFormsApp1_API
 
 
             }
-            else if (e.sRQName == "계좌초기화")
+            else if (e.sRQName == "계좌초기화1")
             {
                 label9.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "예수금")));
                 label24.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "D+2추정예수금")));
                 label10.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "총매입금액")));
                 label26.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "평가금액")));
-                label28.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익금액")));
-                label30.Text = (float.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익율")) / (float)10000).ToString();
                 label32.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "추정예탁자산"))); // 뭔가 조금 안맞음
+
+                dataGridView1.Rows.Insert(0,
+                    axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim(),
+                    int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "보유수량")),
+                    int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "결제잔고")),
+                    axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, ""),
+                    string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "평균단가"))),
+                    string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "매입금액"))),
+                    string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가"))),
+                    string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익금액"))),
+                    (float.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "손익율")) / (float)10000).ToString()
+                    );
             }
+
+            // 2021-11-28 여기 하는중이었음
+            else if (e.sRQName == "계좌초기화2")
+            {
+                label28.Text = string.Format("{0:#,##0}", int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "총평가손익금액"))); // 계좌 수익률 요청
+                label30.Text = float.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "총수익률(%)")).ToString(); // 계좌 수익률 요청
+            }
+            else { }
 
             //-------------------------------------이 밑으로는 if문으로 RQName 구분 넣을 것
 
