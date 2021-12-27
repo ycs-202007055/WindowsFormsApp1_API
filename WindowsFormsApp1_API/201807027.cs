@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 using System.Windows.Forms;
 
 
@@ -16,6 +18,7 @@ namespace WindowsFormsApp1_API
     
     public partial class Form1 
     {
+        
 
         void ConstructorA()
         {
@@ -101,33 +104,9 @@ namespace WindowsFormsApp1_API
                 종목리스트.Rows.Clear();
                 int StockCount = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
                 if (StockCount <= 0) return;
-
-                for (int i = 0; i < 100; i++)
-                {
-                    
-                    int index = 종목리스트.Rows.Add();
-                    종목리스트["종목리스트_거래대금", index].Value = index.ToString();
-                    종목리스트["종목리스트_종목명", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-
-                    int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가"));
-                    종목리스트["종목리스트_현재가", index].Value = string.Format("{0:#,##0}", Math.Abs(CurrentPrice));
-
-                    int DaytoDay = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "전일대비"));
-                    if (DaytoDay > 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Red;
-                    else if (DaytoDay < 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Blue;
-                    else 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Black;
-                    종목리스트["종목리스트_전일대비", index].Value = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
-
-                    string FluRate = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "등락율").Trim();
-                    float FluRatef = float.Parse(FluRate);
-                    if (FluRatef > 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Red;
-                    else if (FluRatef < 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Blue;
-                    else 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Black;
-                    종목리스트["종목리스트_등락률", index].Value = FluRate + "%";
-
-                    종목리스트["종목리스트_종목코드", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
-
-                }
+                Console.WriteLine("실행");
+                Thread updateListTR = new Thread(() => updateStockList(e));
+                updateListTR.Start();
             }
         }
 
@@ -202,6 +181,47 @@ namespace WindowsFormsApp1_API
         }
 
 
+
+        static public void updateStockList(AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        {
+            Console.WriteLine("sd");
+            /*
+            if(종목리스트.InvokeRequired == true)
+            {
+                종목리스트.Invoke((MethodInvoker)delegate
+                {
+                    for (int i = 0; i < 100; i++)
+                    {
+
+                        int index = 종목리스트.Rows.Add();
+                        종목리스트["종목리스트_거래대금", index].Value = index.ToString();
+                        종목리스트["종목리스트_종목명", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+
+                        int CurrentPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가"));
+                        종목리스트["종목리스트_현재가", index].Value = string.Format("{0:#,##0}", Math.Abs(CurrentPrice));
+
+                        int DaytoDay = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "전일대비"));
+                        if (DaytoDay > 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Red;
+                        else if (DaytoDay < 0) 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Blue;
+                        else 종목리스트["종목리스트_전일대비", index].Style.ForeColor = Color.Black;
+                        종목리스트["종목리스트_전일대비", index].Value = string.Format("{0:#,##0}", Math.Abs(DaytoDay));
+
+                        string FluRate = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "등락율").Trim();
+                        float FluRatef = float.Parse(FluRate);
+                        if (FluRatef > 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Red;
+                        else if (FluRatef < 0) 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Blue;
+                        else 종목리스트["종목리스트_등락률", index].Style.ForeColor = Color.Black;
+                        종목리스트["종목리스트_등락률", index].Value = FluRate + "%";
+
+                        종목리스트["종목리스트_종목코드", index].Value = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+
+                    }
+                });
+            }
+           */
+        }
+
+
         private void customSortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
             switch(e.Column.Index)
@@ -231,6 +251,9 @@ namespace WindowsFormsApp1_API
             e.Handled = true;
 
         }
+
+
+       
 
     }
 }
