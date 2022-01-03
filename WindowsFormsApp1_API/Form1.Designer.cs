@@ -148,6 +148,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트_종목코드 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_검색입력 = new System.Windows.Forms.TextBox();
             this.디버그 = new System.Windows.Forms.TextBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
