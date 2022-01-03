@@ -67,6 +67,9 @@ namespace WindowsFormsApp1_API
                 주_선택.Visible = true;
         }
 
-        
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

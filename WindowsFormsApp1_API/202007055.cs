@@ -7,18 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ db빼고 차트 구현하고 있음
+ 참고 https://wikidocs.net/17634
+ 
+ 차트 개빡숙 http://www.soen.kr/lecture/library/mschart/2.htm
+ */
 
 // https://wikidocs.net/17615
 // 8011216111
 
 namespace WindowsFormsApp1_API
 {
+
     public partial class Form1 : Form
     {
-
         chartdata chart; // 차트 출력 클래스 생성
-        
+
         //
         // 계좌별주문체결현황요청
         //
@@ -87,11 +92,10 @@ namespace WindowsFormsApp1_API
 
             public void chartCall()
             {
-                e.SetInputValue("종목코드", "005380");
+                e.SetInputValue("종목코드", "005930");
                 e.SetInputValue("기준일자", "20211123");
                 e.SetInputValue("수정주가구분", "0");
                 e.CommRqData("chart", "opt10081", 0, "0000"); // ("내가 지정한 Rq이름", tr, 0, "화면번호");
-                //e.CommData(e.sTrCode, e.sRQName, 0, "현재가");
             }
         };
 
@@ -102,7 +106,6 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommConnect();
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
 
-            
             chart = new chartdata(axKHOpenAPI1); // 차트출력 클래스 생성
         }
 
@@ -113,7 +116,6 @@ namespace WindowsFormsApp1_API
         {
             String[] Acount = axKHOpenAPI1.GetLoginInfo("ACCLIST").Split(';');
             int i = 0;
-
             while (i < Acount.Length - 1)
             {
                 계좌번호콤보.Items.Add(Acount[i]);
@@ -128,29 +130,60 @@ namespace WindowsFormsApp1_API
 
 
             Account_setting(axKHOpenAPI1);
+
+            chart1.Series[0].CustomProperties = "PriceDownColor=Red, PriceUpColor=Blue";
+            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+
+            //chart1.ChartAreas[0].AxisY.Minimum = 5000;
+            //chart1.ChartAreas[0].AxisY.Maximum = 30000;
+            chart1.Series[0].LegendText = "다날";
+
+            // 시가 현재가 고가 저가
+            axKHOpenAPI1.SetInputValue("종목코드", "064260");
+            axKHOpenAPI1.SetInputValue("시작일자", DateTime.Now.ToString("yyyyMMdd"));
+            axKHOpenAPI1.SetInputValue("수정주가구분", "0");
+            axKHOpenAPI1.CommRqData("setchart", "opt10081", 0, "0000");
+
         }
-
+       
    
-
-
+        //CommRqData의 첫번빼 인수로 이벤트 처리
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e) // CommRQdate()
         {
-            if (e.sRQName == "chart")
+             //
+             // 초기에 삼성전자로 세팅해주는 RQname
+             //
+            if (e.sRQName == "setchart")
             {
-                chart.now_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가")); // 현재가
-                chart.hight_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "고가")); // 고가
-                chart.row_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "저가"));   // 저가
-                chart.start_price = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "시가")); // 시가
-                chart.day = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "일자");                    // 일자
+                int cnt = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
+                for (int i = 0; i <= cnt; i++)
+                {
+                    // 시가 고가 저가 현재가
+                    chart1.Series[0].Points.AddXY(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "일자"),
+                        axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "저가"),
+                        axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "고가"),
+                        axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가"),
+                        axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "시가")); // ( x값 , y값1, y값2, y값3, y값4)
+                }
+            }
 
-                chart1.Series["price"].YValueMembers = "now_price,row_price,hight_price";
-                chart1.Series["price"].XValueMember = "day";
+            //
+            // 초기 세팅 이후 다른 종목 볼 때부턴 이 부분이 호출됨
+            //
+            else if (e.sRQName == "chart")
+            {
+                for (int i = 0; i <= 14; i++)
+                {
+                    chart1.Series.Clear();
+                    chart1.ChartAreas[0].AxisY.Minimum = 60000;
+                    chart1.ChartAreas[0].AxisY.Maximum = 100000;
 
-                chart1.Series["price"].Points.Add(chart.now_price);
-                chart1.Series["price"].Points.Add(chart.row_price);
-                chart1.Series["price"].Points.Add(chart.hight_price);
-
-
+                    String str1 = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "저가");
+                    String str2 = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "고가");
+                    String str3 = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "현재가");
+                    String str4 = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "시가");
+                    chart1.Series[0].Points.AddXY(DateTime.Now.AddDays(-15 + i).ToString("yyyy-MM-dd"), str1, str2, str3, str4); // ( x값 , y값1, y값2, y값3, y값4)
+                }
             }
             else if (e.sRQName == "계좌초기화1")
             {
