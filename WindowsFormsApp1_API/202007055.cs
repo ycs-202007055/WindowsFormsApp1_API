@@ -50,7 +50,7 @@ namespace WindowsFormsApp1_API
             e.SetInputValue("비밀번호입력매체구분", "00");
 
             //계좌번호
-            e.SetInputValue("계좌번호", "8011216111");
+            e.SetInputValue("계좌번호", 계좌번호콤보.Text);
             // 비밀번호 = ""(공백)
             e.SetInputValue("비밀번호", "");
             //상장폐지조회구분 = 0:전체, 1:상장폐지종목제외
@@ -62,7 +62,7 @@ namespace WindowsFormsApp1_API
 
 
 
-            e.SetInputValue("계좌번호", "8011216111");
+            e.SetInputValue("계좌번호", 계좌번호콤보.Text);
             e.CommRqData("계좌초기화2", "opw00018", 0, "0000");
         }
 
