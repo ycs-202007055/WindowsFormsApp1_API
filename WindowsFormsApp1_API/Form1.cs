@@ -26,7 +26,6 @@ namespace WindowsFormsApp1_API
                 return _Instance;
             }
         }
-
         private Form1()
         {
             InitializeComponent();
@@ -77,6 +76,8 @@ namespace WindowsFormsApp1_API
                 주_선택.Visible = true;
         }
 
-        
+
+
+
     }
 }

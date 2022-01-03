@@ -60,8 +60,7 @@ namespace WindowsFormsApp1_API
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.계좌번호콤보 = new System.Windows.Forms.ComboBox();
-            this.검색버튼 = new System.Windows.Forms.Button();
-            this.검색창 = new System.Windows.Forms.TextBox();
+            this.종목리스트_검색버튼 = new System.Windows.Forms.Button();
             this.종목명 = new System.Windows.Forms.Label();
             this.고가 = new System.Windows.Forms.Label();
             this.저가 = new System.Windows.Forms.Label();
@@ -147,6 +146,8 @@ namespace WindowsFormsApp1_API
             this.종목리스트_전일대비 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_거래대금 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_종목코드 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.종목리스트_검색입력 = new System.Windows.Forms.TextBox();
+            this.디버그 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -478,22 +479,15 @@ namespace WindowsFormsApp1_API
             this.계좌번호콤보.Size = new System.Drawing.Size(112, 20);
             this.계좌번호콤보.TabIndex = 21;
             // 
-            // 검색버튼
+            // 종목리스트_검색버튼
             // 
-            this.검색버튼.Location = new System.Drawing.Point(1767, 42);
-            this.검색버튼.Name = "검색버튼";
-            this.검색버튼.Size = new System.Drawing.Size(75, 23);
-            this.검색버튼.TabIndex = 18;
-            this.검색버튼.Text = "검색";
-            this.검색버튼.UseVisualStyleBackColor = true;
-            this.검색버튼.Click += new System.EventHandler(this.검색버튼_Click);
-            // 
-            // 검색창
-            // 
-            this.검색창.Location = new System.Drawing.Point(1661, 44);
-            this.검색창.Name = "검색창";
-            this.검색창.Size = new System.Drawing.Size(100, 21);
-            this.검색창.TabIndex = 19;
+            this.종목리스트_검색버튼.Location = new System.Drawing.Point(1818, 27);
+            this.종목리스트_검색버튼.Name = "종목리스트_검색버튼";
+            this.종목리스트_검색버튼.Size = new System.Drawing.Size(74, 46);
+            this.종목리스트_검색버튼.TabIndex = 18;
+            this.종목리스트_검색버튼.Text = "검색";
+            this.종목리스트_검색버튼.UseVisualStyleBackColor = true;
+            this.종목리스트_검색버튼.Click += new System.EventHandler(this.종목리스트_검색버튼_Click);
             // 
             // 종목명
             // 
@@ -809,7 +803,6 @@ namespace WindowsFormsApp1_API
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(242, 273);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "매수";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -1470,7 +1463,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트_거래대금,
             this.종목리스트_종목코드});
             this.종목리스트.Font = new System.Drawing.Font("굴림", 8F);
-            this.종목리스트.Location = new System.Drawing.Point(1413, 28);
+            this.종목리스트.Location = new System.Drawing.Point(1413, 71);
             this.종목리스트.MultiSelect = false;
             this.종목리스트.Name = "종목리스트";
             this.종목리스트.ReadOnly = true;
@@ -1480,7 +1473,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.종목리스트.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.종목리스트.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.종목리스트.Size = new System.Drawing.Size(459, 545);
+            this.종목리스트.Size = new System.Drawing.Size(479, 502);
             this.종목리스트.TabIndex = 33;
             this.종목리스트.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.종목리스트_CellClick);
             // 
@@ -1534,11 +1527,28 @@ namespace WindowsFormsApp1_API
             this.종목리스트_종목코드.ReadOnly = true;
             this.종목리스트_종목코드.Visible = false;
             // 
+            // 종목리스트_검색입력
+            // 
+            this.종목리스트_검색입력.Font = new System.Drawing.Font("굴림", 15F);
+            this.종목리스트_검색입력.Location = new System.Drawing.Point(1677, 35);
+            this.종목리스트_검색입력.Name = "종목리스트_검색입력";
+            this.종목리스트_검색입력.Size = new System.Drawing.Size(135, 30);
+            this.종목리스트_검색입력.TabIndex = 34;
+            // 
+            // 디버그
+            // 
+            this.디버그.Location = new System.Drawing.Point(1413, 591);
+            this.디버그.Name = "디버그";
+            this.디버그.Size = new System.Drawing.Size(100, 21);
+            this.디버그.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.디버그);
+            this.Controls.Add(this.종목리스트_검색입력);
             this.Controls.Add(this.주_선택);
             this.Controls.Add(this.종목리스트);
             this.Controls.Add(this.tabControl2);
@@ -1547,8 +1557,7 @@ namespace WindowsFormsApp1_API
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.종목정보);
-            this.Controls.Add(this.검색창);
-            this.Controls.Add(this.검색버튼);
+            this.Controls.Add(this.종목리스트_검색버튼);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.axKHOpenAPI1);
@@ -1599,8 +1608,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 로그인ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button 검색버튼;
-        private System.Windows.Forms.TextBox 검색창;
+        private System.Windows.Forms.Button 종목리스트_검색버튼;
         private System.Windows.Forms.Label 종목명;
         private System.Windows.Forms.Label 고가;
         private System.Windows.Forms.Label 저가;
@@ -1701,6 +1709,8 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_전일대비;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_거래대금;
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목코드;
+        private System.Windows.Forms.TextBox 종목리스트_검색입력;
+        private System.Windows.Forms.TextBox 디버그;
     }
 }
 
