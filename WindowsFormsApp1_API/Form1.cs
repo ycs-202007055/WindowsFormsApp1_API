@@ -16,8 +16,17 @@ namespace WindowsFormsApp1_API
 {
     public partial class Form1 : Form
     {
-
-        public Form1()
+        // 싱글톤패턴
+        private static Form1 _Instance = null;
+        public static Form1 Instance
+        {
+            get
+            {
+                if (_Instance == null) _Instance = new Form1();
+                return _Instance;
+            }
+        }
+        private Form1()
         {
             InitializeComponent();
             axKHOpenAPI1.OnReceiveRealData += OnReceiveRealData;
