@@ -20,10 +20,13 @@ namespace WindowsFormsApp1_API
     {
 
         private List<string[]> StockList = new List<string[]>();
+        private string SearchedList = "";
+        private int SearchedList_Count = 0;
+        private int SearchedList_Index = 1;
 
         void ConstructorA()
         {
-            종목리스트.SortCompare += customSortCompare; 
+            종목리스트.SortCompare += customSortCompare;
         }
 
 
@@ -34,14 +37,15 @@ namespace WindowsFormsApp1_API
         {
             Console.WriteLine("//////////////////////////로그인//////////////////////////");
             // 종목 정보
-            UpdateStockInfo("005830");
+            UpdateStockInfo("000020");
             
 
             // 종목리스트
-            string List = axKHOpenAPI1.GetCodeListByMarket("0");
-            string[] SplitedList = List.Split(';');
-            int Count = Math.Min(SplitedList.Length, 100);
-            
+            SearchedList = axKHOpenAPI1.GetCodeListByMarket("0");
+        
+            string[] SplitedList = SearchedList.Split(';');
+            int Count = Math.Min(SplitedList.Length - 1 , 100);
+            SearchedList_Count = SplitedList.Length - 1;
             // 모든 종목들의 코드와 이름을 배열에 저장
             for (int i=0; i<SplitedList.Length;i++)
             {
@@ -50,9 +54,10 @@ namespace WindowsFormsApp1_API
             }
             
             // 종목리스트 요청
-            디버그.Text = List;
+            string ShownList = SearchedList.Substring(0, Count * 7);
+            axKHOpenAPI1.CommKwRqData(ShownList,0,Count,0,"종목리스트","0000");
 
-            axKHOpenAPI1.CommKwRqData(List,0,Count,0,"종목리스트","0000");
+
             
 
         }
@@ -61,7 +66,6 @@ namespace WindowsFormsApp1_API
         // ************************************************************************************
         void OnReceiveA(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            
             if (e.sRQName == "종목정보")
             {
                 updateStockInfoRcv(e);
@@ -84,6 +88,7 @@ namespace WindowsFormsApp1_API
                 종목리스트.Rows.Clear();
                 int StockCount = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
                 if (StockCount <= 0) return;
+
                 updateStockListRcv(e);
             }
         }
@@ -212,12 +217,16 @@ namespace WindowsFormsApp1_API
         }
 
 
-        public void updateStockListRcv(AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
+        static void updateStockListRcv(object param)
         {
+            AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e = (AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent)param;
+            AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1 =  Form1.Instance.getAPI();
+            DataGridView 종목리스트 = Form1.Instance.getStockList();
+            
             int count = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine("str : " + e.sTrCode);
+
                 int index = 종목리스트.Rows.Add();
 
                 종목리스트["종목리스트_거래대금", index].Value = index.ToString();
@@ -295,23 +304,42 @@ namespace WindowsFormsApp1_API
             if (FoundList.Count < 1) return;
 
             // 종목리스트
-            string List = "";
+            SearchedList = "";
+            SearchedList_Count = FoundList.Count;
 
             for(int i=0; i<FoundList.Count;i++)
             {
-                List += FoundList[i][1] + ";";
+                SearchedList += FoundList[i][1] + ";";
             }
 
             int Count = Math.Min(FoundList.Count, 100);
 
+            string ShownList = SearchedList.Substring(0, Count * 7);
             // 종목리스트 요청
-            axKHOpenAPI1.CommKwRqData(List, 0, Count, 0, "종목리스트", "0010");
+            axKHOpenAPI1.CommKwRqData(ShownList, 0, Count, 0, "종목리스트", "0010");
+            SearchedList_Index = 1;
 
-            
         }
 
+        private void 종목리스트_인덱스_Click(object sender, EventArgs e)
+        {
+            Button InstButton = (Button)sender;
+
+            int TargetPage = int.Parse(InstButton.Text);
+
+            if (TargetPage == SearchedList_Index) return;
+            if ((TargetPage) * 100 > SearchedList_Count) return;
+
+            int index = Math.Min(SearchedList_Count, TargetPage * 100);
+            int Count = index - (TargetPage-1) * 100;
 
 
+            string ShownList = SearchedList.Substring((TargetPage - 1) * 100 * 7, index * 7);
+            // 종목리스트 요청
+            axKHOpenAPI1.CommKwRqData(ShownList, 0, Count, 0, "종목리스트", "0010");
 
+            SearchedList_Index = TargetPage;
+        }
     }
+
 }
