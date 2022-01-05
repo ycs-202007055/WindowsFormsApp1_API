@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp1_API
 {
@@ -32,16 +33,14 @@ namespace WindowsFormsApp1_API
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.로그인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -156,7 +155,6 @@ namespace WindowsFormsApp1_API
             this.종목리스트_인덱스6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.종목정보.SuspendLayout();
@@ -204,50 +202,70 @@ namespace WindowsFormsApp1_API
             // 
             this.chart1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Cursor;
-            chartArea3.AxisX.IsReversed = true;
-            chartArea3.CursorX.IsUserEnabled = true;
-            chartArea3.CursorX.IsUserSelectionEnabled = true;
-            chartArea3.CursorY.IsUserSelectionEnabled = true;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea1.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Cursor;
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.IsReversed = true;
+            chartArea1.AxisX2.ScrollBar.IsPositionedInside = false;
+            chartArea1.AxisY.ScrollBar.IsPositionedInside = false;
+            chartArea1.AxisY2.Crossing = -1.7976931348623157E+308D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY2.MaximumAutoSize = 100F;
+            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 70F;
+            chartArea1.Position.Width = 90F;
+            chartArea1.Position.X = 3F;
+            chartArea2.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Cursor;
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisX.IsReversed = true;
+            chartArea2.AxisX.MaximumAutoSize = 100F;
+            chartArea2.AxisX2.IsReversed = true;
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisY.MaximumAutoSize = 100F;
+            chartArea2.CursorX.IsUserEnabled = true;
+            chartArea2.CursorX.IsUserSelectionEnabled = true;
+            chartArea2.CursorY.IsUserEnabled = true;
+            chartArea2.CursorY.IsUserSelectionEnabled = true;
+            chartArea2.Name = "ChartArea2";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 30F;
+            chartArea2.Position.Width = 90F;
+            chartArea2.Position.X = 3F;
+            chartArea2.Position.Y = 70F;
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.ChartAreas.Add(chartArea2);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(246, 27);
             this.chart1.Name = "chart1";
-            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series3.Legend = "Legend1";
-            series3.MarkerImageTransparentColor = System.Drawing.Color.White;
-            series3.MarkerSize = 30;
-            series3.Name = "price";
-            series3.YValuesPerPoint = 10;
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(909, 469);
+            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.Legend = "Legend1";
+            series1.MarkerImageTransparentColor = System.Drawing.Color.White;
+            series1.MarkerSize = 30;
+            series1.Name = "price";
+            series1.YValuesPerPoint = 10;
+            series2.ChartArea = "ChartArea2";
+            series2.Legend = "Legend1";
+            series2.Name = "거래량";
+            series2.YValuesPerPoint = 10;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(909, 604);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
             this.chart1.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
+            this.chart1.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart1_AxisViewChanged);
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
-            // 
-            // chart2
-            // 
-            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(246, 493);
-            this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart2.Series.Add(series4);
-            this.chart2.Size = new System.Drawing.Size(909, 138);
-            this.chart2.TabIndex = 11;
-            this.chart2.Text = "chart2";
             // 
             // menuStrip1
             // 
@@ -1637,7 +1655,6 @@ namespace WindowsFormsApp1_API
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.종목정보);
             this.Controls.Add(this.종목리스트_검색버튼);
-            this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.axKHOpenAPI1);
             this.Controls.Add(this.menuStrip1);
@@ -1646,7 +1663,6 @@ namespace WindowsFormsApp1_API
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1683,7 +1699,6 @@ namespace WindowsFormsApp1_API
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 로그인ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
