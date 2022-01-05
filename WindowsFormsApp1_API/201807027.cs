@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
+
 // https://wikidocs.net/17615
 
 namespace WindowsFormsApp1_API
@@ -18,7 +19,6 @@ namespace WindowsFormsApp1_API
     
     public partial class Form1 
     {
-
         private List<string[]> StockList = new List<string[]>();
         private string SearchedList = "";
         private int SearchedList_Count = 0;
@@ -339,6 +339,20 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommKwRqData(ShownList, 0, Count, 0, "종목리스트", "0010");
 
             SearchedList_Index = TargetPage;
+        }
+
+        private void 종목리스트_페이지_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumericCheck_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지는 입력중지
+            {
+                e.Handled = true;
+            }
         }
     }
 

@@ -81,6 +81,9 @@ namespace WindowsFormsApp1_API
 
         }
 
-        
+        private void chart1_AxisViewChanged(object sender, System.Windows.Forms.DataVisualization.Charting.ViewEventArgs e)
+        {
+
+        }
     }
 }
