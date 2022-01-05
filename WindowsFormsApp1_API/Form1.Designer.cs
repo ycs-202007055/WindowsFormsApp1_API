@@ -241,8 +241,7 @@ namespace WindowsFormsApp1_API
             this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            
             this.chart1.Location = new System.Drawing.Point(246, 27);
             this.chart1.Name = "chart1";
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
