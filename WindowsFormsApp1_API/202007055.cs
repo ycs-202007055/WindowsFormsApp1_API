@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
 /*
  db빼고 차트 구현하고 있음
  참고 https://wikidocs.net/17634
@@ -28,10 +30,6 @@ namespace WindowsFormsApp1_API
         //
         // 계좌별주문체결현황요청
         //
-
-
-
-
 
 
 
@@ -108,7 +106,39 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.OnReceiveTrData += onReceiveTrData;
 
             chart = new chartdata(axKHOpenAPI1); // 차트출력 클래스 생성
+
+            ChartArea ca1 = chart1.ChartAreas[0];
+            ChartArea ca2 = chart1.ChartAreas[1];
+            Axis ax1 = ca1.AxisX;
+            Axis ax2 = ca2.AxisX;
+            ax1.ScaleView.Zoomable = true;
+            ax2.ScaleView.Zoomable = true;
+            ca1.CursorX.IsUserSelectionEnabled = true;
+            ca2.CursorX.IsUserSelectionEnabled = true;
         }
+
+        //
+        // chart1 Area 1,2 스크롤 동기화
+        //
+        private void chart1_AxisViewChanged(object sender, ViewEventArgs e)
+        {
+            ChartArea ca1 = chart1.ChartAreas[0];
+            ChartArea ca2 = chart1.ChartAreas[1];
+            Axis ax1 = ca1.AxisX;
+            Axis ax2 = ca2.AxisX;
+
+            if (e.Axis == ax1)
+            {
+                ax2.ScaleView.Size = ax1.ScaleView.Size;
+                ax2.ScaleView.Position = ax1.ScaleView.Position;
+            }
+            if (e.Axis == ax2)
+            {
+                ax1.ScaleView.Size = ax2.ScaleView.Size;
+                ax1.ScaleView.Position = ax2.ScaleView.Position;
+            }
+        }
+
 
         //
         // 로그인 이벤트
@@ -138,6 +168,7 @@ namespace WindowsFormsApp1_API
             chart1.Series[1].CustomProperties = "PriceDownColor=Red, PriceUpColor=Blue";
             chart1.ChartAreas[1].AxisX.MajorGrid.Enabled = false;
 
+            
 
             //chart1.ChartAreas[0].AxisY.Minimum = 5000;
             //chart1.ChartAreas[0].AxisY.Maximum = 30000;
@@ -150,8 +181,10 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.CommRqData("setchart", "opt10081", 0, "0000");
 
         }
-       
-   
+
+        
+
+
         //CommRqData의 첫번빼 인수로 이벤트 처리
         void OnReceiveB(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e) // CommRQdate()
         {
@@ -161,9 +194,6 @@ namespace WindowsFormsApp1_API
             if (e.sRQName == "setchart")
             {
                 int cnt = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
-
-                
-
                 for (int i = 0; i <= cnt; i++)
                 {
                     
@@ -183,7 +213,6 @@ namespace WindowsFormsApp1_API
                         axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "거래량")
                         );
 
-                    //chart1.Series[0].XAxisType AxisY.PositionToValue(20);
 
 
 
@@ -191,6 +220,9 @@ namespace WindowsFormsApp1_API
 
                 }
             }
+
+           
+
 
             //
             // 초기 세팅 이후 다른 종목 볼 때부턴 이 부분이 호출됨

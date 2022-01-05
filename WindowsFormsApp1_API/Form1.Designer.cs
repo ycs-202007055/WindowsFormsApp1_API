@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp1_API
 {
@@ -34,6 +35,7 @@ namespace WindowsFormsApp1_API
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -196,24 +198,33 @@ namespace WindowsFormsApp1_API
             this.chart1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Cursor;
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea1.AxisX.IsReversed = true;
+            chartArea1.AxisX2.ScrollBar.IsPositionedInside = false;
+            chartArea1.AxisY.ScrollBar.IsPositionedInside = false;
             chartArea1.AxisY2.Crossing = -1.7976931348623157E+308D;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea1.AxisY2.MaximumAutoSize = 100F;
             chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
             chartArea1.CursorX.IsUserEnabled = true;
             chartArea1.CursorX.IsUserSelectionEnabled = true;
             chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
             chartArea1.Name = "ChartArea1";
             chartArea1.Position.Auto = false;
             chartArea1.Position.Height = 70F;
             chartArea1.Position.Width = 90F;
             chartArea1.Position.X = 3F;
             chartArea2.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.Cursor;
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
             chartArea2.AxisX.IsReversed = true;
+            chartArea2.AxisX.MaximumAutoSize = 100F;
+            chartArea2.AxisX2.IsReversed = true;
+            chartArea2.AxisY.CustomLabels.Add(customLabel1);
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisY.MaximumAutoSize = 100F;
             chartArea2.CursorX.IsUserEnabled = true;
             chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.CursorY.AxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             chartArea2.CursorY.IsUserEnabled = true;
             chartArea2.CursorY.IsUserSelectionEnabled = true;
             chartArea2.Name = "ChartArea2";
@@ -224,12 +235,13 @@ namespace WindowsFormsApp1_API
             chartArea2.Position.Y = 70F;
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.ChartAreas.Add(chartArea2);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(246, 27);
             this.chart1.Name = "chart1";
-            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
             series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
@@ -238,16 +250,16 @@ namespace WindowsFormsApp1_API
             series1.MarkerSize = 30;
             series1.Name = "price";
             series1.YValuesPerPoint = 10;
-            series2.ChartArea = "ChartArea1";
+            series2.ChartArea = "ChartArea2";
             series2.Legend = "Legend1";
             series2.Name = "거래량";
-            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(909, 604);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
             this.chart1.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
+            this.chart1.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart1_AxisViewChanged);
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // menuStrip1
@@ -1722,6 +1734,7 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목코드;
         private System.Windows.Forms.TextBox 종목리스트_검색입력;
         private System.Windows.Forms.TextBox 디버그;
+
     }
 }
 

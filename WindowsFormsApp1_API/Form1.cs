@@ -58,6 +58,7 @@ namespace WindowsFormsApp1_API
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
         private void 매수_주_Click(object sender, EventArgs e)
@@ -85,5 +86,6 @@ namespace WindowsFormsApp1_API
         {
 
         }
+
     }
 }
