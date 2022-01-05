@@ -35,7 +35,6 @@ namespace WindowsFormsApp1_API
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -220,7 +219,6 @@ namespace WindowsFormsApp1_API
             chartArea2.AxisX.IsReversed = true;
             chartArea2.AxisX.MaximumAutoSize = 100F;
             chartArea2.AxisX2.IsReversed = true;
-            chartArea2.AxisY.CustomLabels.Add(customLabel1);
             chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
             chartArea2.AxisY.MaximumAutoSize = 100F;
             chartArea2.CursorX.IsUserEnabled = true;
@@ -253,6 +251,7 @@ namespace WindowsFormsApp1_API
             series2.ChartArea = "ChartArea2";
             series2.Legend = "Legend1";
             series2.Name = "거래량";
+            series2.YValuesPerPoint = 10;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(909, 604);
