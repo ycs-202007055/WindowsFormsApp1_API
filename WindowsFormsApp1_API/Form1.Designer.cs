@@ -146,12 +146,11 @@ namespace WindowsFormsApp1_API
             this.종목리스트_종목코드 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.종목리스트_검색입력 = new System.Windows.Forms.TextBox();
             this.디버그 = new System.Windows.Forms.TextBox();
-            this.종목리스트_인덱스1 = new System.Windows.Forms.Button();
-            this.종목리스트_인덱스2 = new System.Windows.Forms.Button();
-            this.종목리스트_인덱스3 = new System.Windows.Forms.Button();
-            this.종목리스트_인덱스4 = new System.Windows.Forms.Button();
-            this.종목리스트_인덱스5 = new System.Windows.Forms.Button();
-            this.종목리스트_인덱스6 = new System.Windows.Forms.Button();
+            this.종목리스트_이전 = new System.Windows.Forms.Button();
+            this.종목리스트_페이지 = new System.Windows.Forms.TextBox();
+            this.종목리스트_최대페이지 = new System.Windows.Forms.Label();
+            this.종목리스트_다음 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -891,7 +890,6 @@ namespace WindowsFormsApp1_API
             this.매수_현재가.TabIndex = 29;
             this.매수_현재가.Text = "현재가(자동)";
             this.매수_현재가.UseVisualStyleBackColor = true;
-            this.매수_현재가.CheckedChanged += new System.EventHandler(this.매수_현재가_CheckedChanged);
             // 
             // 매수_가격
             // 
@@ -1562,85 +1560,81 @@ namespace WindowsFormsApp1_API
             this.종목리스트_검색입력.Name = "종목리스트_검색입력";
             this.종목리스트_검색입력.Size = new System.Drawing.Size(135, 30);
             this.종목리스트_검색입력.TabIndex = 34;
+            this.종목리스트_검색입력.KeyDown += new System.Windows.Forms.KeyEventHandler(this.종목리스트_검색입력_KeyDown);
             // 
             // 디버그
             // 
-            this.디버그.Location = new System.Drawing.Point(1413, 610);
+            this.디버그.Location = new System.Drawing.Point(1433, 702);
             this.디버그.Name = "디버그";
             this.디버그.Size = new System.Drawing.Size(100, 21);
             this.디버그.TabIndex = 35;
             // 
-            // 종목리스트_인덱스1
+            // 종목리스트_이전
             // 
-            this.종목리스트_인덱스1.Location = new System.Drawing.Point(1413, 579);
-            this.종목리스트_인덱스1.Name = "종목리스트_인덱스1";
-            this.종목리스트_인덱스1.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스1.TabIndex = 36;
-            this.종목리스트_인덱스1.Text = "1";
-            this.종목리스트_인덱스1.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스1.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
+            this.종목리스트_이전.Location = new System.Drawing.Point(1574, 579);
+            this.종목리스트_이전.Name = "종목리스트_이전";
+            this.종목리스트_이전.Size = new System.Drawing.Size(38, 23);
+            this.종목리스트_이전.TabIndex = 36;
+            this.종목리스트_이전.Text = "이전";
+            this.종목리스트_이전.UseVisualStyleBackColor = true;
+            this.종목리스트_이전.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
             // 
-            // 종목리스트_인덱스2
+            // 종목리스트_페이지
             // 
-            this.종목리스트_인덱스2.Location = new System.Drawing.Point(1447, 579);
-            this.종목리스트_인덱스2.Name = "종목리스트_인덱스2";
-            this.종목리스트_인덱스2.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스2.TabIndex = 37;
-            this.종목리스트_인덱스2.Text = "2";
-            this.종목리스트_인덱스2.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스2.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
+            this.종목리스트_페이지.Location = new System.Drawing.Point(1618, 579);
+            this.종목리스트_페이지.MaxLength = 2;
+            this.종목리스트_페이지.Name = "종목리스트_페이지";
+            this.종목리스트_페이지.Size = new System.Drawing.Size(32, 21);
+            this.종목리스트_페이지.TabIndex = 42;
+            this.종목리스트_페이지.KeyDown += new System.Windows.Forms.KeyEventHandler(this.종목리스트_페이지_KeyDown);
+            this.종목리스트_페이지.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericCheck_KeyPress);
             // 
-            // 종목리스트_인덱스3
+            // 종목리스트_최대페이지
             // 
-            this.종목리스트_인덱스3.Location = new System.Drawing.Point(1481, 579);
-            this.종목리스트_인덱스3.Name = "종목리스트_인덱스3";
-            this.종목리스트_인덱스3.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스3.TabIndex = 38;
-            this.종목리스트_인덱스3.Text = "3";
-            this.종목리스트_인덱스3.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스3.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
+            this.종목리스트_최대페이지.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.종목리스트_최대페이지.AutoSize = true;
+            this.종목리스트_최대페이지.Font = new System.Drawing.Font("굴림", 9F);
+            this.종목리스트_최대페이지.Location = new System.Drawing.Point(1666, 584);
+            this.종목리스트_최대페이지.Name = "종목리스트_최대페이지";
+            this.종목리스트_최대페이지.Size = new System.Drawing.Size(17, 12);
+            this.종목리스트_최대페이지.TabIndex = 22;
+            this.종목리스트_최대페이지.Text = "10";
+            this.종목리스트_최대페이지.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // 종목리스트_인덱스4
+            // 종목리스트_다음
             // 
-            this.종목리스트_인덱스4.Location = new System.Drawing.Point(1515, 579);
-            this.종목리스트_인덱스4.Name = "종목리스트_인덱스4";
-            this.종목리스트_인덱스4.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스4.TabIndex = 39;
-            this.종목리스트_인덱스4.Text = "4";
-            this.종목리스트_인덱스4.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스4.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
+            this.종목리스트_다음.Location = new System.Drawing.Point(1689, 579);
+            this.종목리스트_다음.Name = "종목리스트_다음";
+            this.종목리스트_다음.Size = new System.Drawing.Size(38, 23);
+            this.종목리스트_다음.TabIndex = 36;
+            this.종목리스트_다음.Text = "다음";
+            this.종목리스트_다음.UseVisualStyleBackColor = true;
+            this.종목리스트_다음.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
             // 
-            // 종목리스트_인덱스5
+            // label3
             // 
-            this.종목리스트_인덱스5.Location = new System.Drawing.Point(1549, 579);
-            this.종목리스트_인덱스5.Name = "종목리스트_인덱스5";
-            this.종목리스트_인덱스5.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스5.TabIndex = 40;
-            this.종목리스트_인덱스5.Text = "5";
-            this.종목리스트_인덱스5.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스5.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
-            // 
-            // 종목리스트_인덱스6
-            // 
-            this.종목리스트_인덱스6.Location = new System.Drawing.Point(1583, 579);
-            this.종목리스트_인덱스6.Name = "종목리스트_인덱스6";
-            this.종목리스트_인덱스6.Size = new System.Drawing.Size(28, 23);
-            this.종목리스트_인덱스6.TabIndex = 41;
-            this.종목리스트_인덱스6.Text = "6";
-            this.종목리스트_인덱스6.UseVisualStyleBackColor = true;
-            this.종목리스트_인덱스6.Click += new System.EventHandler(this.종목리스트_인덱스_Click);
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("굴림", 9F);
+            this.label3.Location = new System.Drawing.Point(1654, 584);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 12);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "/";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.종목리스트_인덱스6);
-            this.Controls.Add(this.종목리스트_인덱스5);
-            this.Controls.Add(this.종목리스트_인덱스4);
-            this.Controls.Add(this.종목리스트_인덱스3);
-            this.Controls.Add(this.종목리스트_인덱스2);
-            this.Controls.Add(this.종목리스트_인덱스1);
+            this.Controls.Add(this.종목리스트_페이지);
+            this.Controls.Add(this.종목리스트_다음);
+            this.Controls.Add(this.종목리스트_이전);
             this.Controls.Add(this.디버그);
             this.Controls.Add(this.종목리스트_검색입력);
             this.Controls.Add(this.주_선택);
@@ -1651,6 +1645,8 @@ namespace WindowsFormsApp1_API
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.종목정보);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.종목리스트_최대페이지);
             this.Controls.Add(this.종목리스트_검색버튼);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.axKHOpenAPI1);
@@ -1802,12 +1798,11 @@ namespace WindowsFormsApp1_API
         private System.Windows.Forms.DataGridViewTextBoxColumn 종목리스트_종목코드;
         private System.Windows.Forms.TextBox 종목리스트_검색입력;
         private System.Windows.Forms.TextBox 디버그;
-        private System.Windows.Forms.Button 종목리스트_인덱스1;
-        private System.Windows.Forms.Button 종목리스트_인덱스2;
-        private System.Windows.Forms.Button 종목리스트_인덱스3;
-        private System.Windows.Forms.Button 종목리스트_인덱스4;
-        private System.Windows.Forms.Button 종목리스트_인덱스5;
-        private System.Windows.Forms.Button 종목리스트_인덱스6;
+        private System.Windows.Forms.Button 종목리스트_이전;
+        private System.Windows.Forms.TextBox 종목리스트_페이지;
+        private System.Windows.Forms.Label 종목리스트_최대페이지;
+        private System.Windows.Forms.Button 종목리스트_다음;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
+
 // https://wikidocs.net/17615
 
 namespace WindowsFormsApp1_API
@@ -18,12 +19,12 @@ namespace WindowsFormsApp1_API
     
     public partial class Form1 
     {
-
         private List<string[]> StockList = new List<string[]>();
-        private string SearchedList = "";
-        private int SearchedList_Count = 0;
-        private int SearchedList_Index = 1;
-
+        private string SearchedList = "";               // 검색된 종목코드들의 총 문자열 ( 123456;789101;... )
+        private int SearchedList_Count = 0;             // 검색된 종목의 총 개수
+        private int SearchedList_Index = 1;             // 종목리스트 현재 페이지
+        private int SearchedList_MaxIndex =  1;          // 종목리스트 총 페이지
+        
         void ConstructorA()
         {
             종목리스트.SortCompare += customSortCompare;
@@ -46,6 +47,7 @@ namespace WindowsFormsApp1_API
             string[] SplitedList = SearchedList.Split(';');
             int Count = Math.Min(SplitedList.Length - 1 , 100);
             SearchedList_Count = SplitedList.Length - 1;
+            SearchedList_Index = 1;
             // 모든 종목들의 코드와 이름을 배열에 저장
             for (int i=0; i<SplitedList.Length;i++)
             {
@@ -57,8 +59,12 @@ namespace WindowsFormsApp1_API
             string ShownList = SearchedList.Substring(0, Count * 7);
             axKHOpenAPI1.CommKwRqData(ShownList,0,Count,0,"종목리스트","0000");
 
+            SearchedList_Index = 1;
+            종목리스트_페이지.Text = "1";
+            종목리스트_최대페이지.Text = ((SearchedList_Count - 1) / 100 + 1).ToString();
 
-            
+
+
 
         }
         // *************************************************************************************
@@ -305,19 +311,28 @@ namespace WindowsFormsApp1_API
 
         }
 
+        private void 종목리스트_검색입력_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.KeyCode == Keys.Enter)
+            {
+                종목리스트_검색버튼_Click(sender, e);
+            }
+
+        }
 
         private void 종목리스트_검색버튼_Click(object sender, EventArgs e)
         {
             string target = 종목리스트_검색입력.Text;
 
-            List<string[]> FoundList = StockList.Where(Stock=>Regex.IsMatch(Stock[0],target)).ToList();
+            List<string[]> FoundList = StockList.Where(Stock => Regex.IsMatch(Stock[0], target)).ToList();
             if (FoundList.Count < 1) return;
 
             // 종목리스트
             SearchedList = "";
             SearchedList_Count = FoundList.Count;
 
-            for(int i=0; i<FoundList.Count;i++)
+            for (int i = 0; i < FoundList.Count; i++)
             {
                 SearchedList += FoundList[i][1] + ";";
             }
@@ -327,28 +342,62 @@ namespace WindowsFormsApp1_API
             string ShownList = SearchedList.Substring(0, Count * 7);
             // 종목리스트 요청
             axKHOpenAPI1.CommKwRqData(ShownList, 0, Count, 0, "종목리스트", "0010");
-            SearchedList_Index = 1;
 
+            SearchedList_Index = 1;
+            종목리스트_페이지.Text = "1";
+            종목리스트_최대페이지.Text = ((SearchedList_Count - 1) / 100 + 1).ToString();
         }
 
-        private void 종목리스트_인덱스_Click(object sender, EventArgs e)
+        private void SearchIndexChanged(int TargetPage)
         {
-            Button InstButton = (Button)sender;
+            if (TargetPage > ((SearchedList_Count - 1) / 100 + 1) || TargetPage <= 0)// 타겟 페이지가 최대 페이지를 넘어갈경우 리턴
+            {
+                종목리스트_페이지.Text = SearchedList_Index.ToString();
+                return;
+            }
 
-            int TargetPage = int.Parse(InstButton.Text);
+            int Count = Math.Min(SearchedList_Count - (TargetPage - 1) * 100, 100);
 
-            if (TargetPage == SearchedList_Index) return;
-            if ((TargetPage) * 100 > SearchedList_Count) return;
-
-            int index = Math.Min(SearchedList_Count, TargetPage * 100);
-            int Count = index - (TargetPage-1) * 100;
-
-
-            string ShownList = SearchedList.Substring((TargetPage - 1) * 100 * 7, index * 7);
+            string ShownList = SearchedList.Substring((TargetPage - 1) * 100 * 7, Count * 7);
             // 종목리스트 요청
             axKHOpenAPI1.CommKwRqData(ShownList, 0, Count, 0, "종목리스트", "0010");
 
             SearchedList_Index = TargetPage;
+            종목리스트_페이지.Text = TargetPage.ToString();
+        }
+
+        private void 종목리스트_인덱스_Click(object sender, EventArgs e)
+        {
+            Button ClickedButton = (Button)sender;
+
+            int TargetPage = 1;
+
+            if (ClickedButton == 종목리스트_다음) TargetPage = SearchedList_Index + 1;
+            else TargetPage = SearchedList_Index - 1;
+
+            SearchIndexChanged(TargetPage);
+
+            
+        }
+
+
+        private void 종목리스트_페이지_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (종목리스트_페이지.Text == null) return;
+                int TargetPage = int.Parse(종목리스트_페이지.Text.ToString());
+                SearchIndexChanged(TargetPage);
+            }
+
+        }
+        private void NumericCheck_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지는 입력중지
+            {
+                e.Handled = true;
+            }
         }
     }
 
