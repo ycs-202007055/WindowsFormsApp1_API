@@ -15,6 +15,9 @@ using System.Windows.Forms.DataVisualization.Charting;
  
  차트 개빡숙 http://www.soen.kr/lecture/library/mschart/2.htm
              http://www.soen.kr/lecture/library/mschart/3-5.htm
+
+
+차트 윗꼬리 아랫꼬리 구현시 참고     https://stackoverflow.com/questions/46316572/ms-chart-candlestick-how-to-set-tail-colors
  */
 
 // https://wikidocs.net/17615
