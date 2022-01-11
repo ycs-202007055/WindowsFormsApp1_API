@@ -169,6 +169,16 @@ namespace WindowsFormsApp1_API
             axKHOpenAPI1.SetInputValue("수정주가구분", "0");
             axKHOpenAPI1.CommRqData("종목정보_거래대금", "opt10081", 0, "0000");
 
+            //
+            //chart1.Series.Clear();
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            axKHOpenAPI1.SetInputValue("종목코드", StockCode);
+            axKHOpenAPI1.SetInputValue("시작일자", DateTime.Now.ToString("yyyyMMdd"));
+            axKHOpenAPI1.SetInputValue("수정주가구분", "0");
+            axKHOpenAPI1.CommRqData("setchart", "opt10081", 0, "0000");
+            //
+
             종목정보.Text = StockCode;
         }
 
@@ -179,7 +189,7 @@ namespace WindowsFormsApp1_API
 
         public void updateStockInfoRcv(AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            
+                
                 종목명.Text = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "종목명").Trim();
 
                 int HighPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, 0, "고가"));
