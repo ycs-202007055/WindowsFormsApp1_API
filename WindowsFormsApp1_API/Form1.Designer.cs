@@ -1547,6 +1547,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트_검색입력.Name = "종목리스트_검색입력";
             this.종목리스트_검색입력.Size = new System.Drawing.Size(135, 30);
             this.종목리스트_검색입력.TabIndex = 34;
+            this.종목리스트_검색입력.KeyDown += new System.Windows.Forms.KeyEventHandler(this.종목리스트_검색입력_KeyDown);
             // 
             // 디버그
             // 
@@ -1572,7 +1573,7 @@ namespace WindowsFormsApp1_API
             this.종목리스트_페이지.Name = "종목리스트_페이지";
             this.종목리스트_페이지.Size = new System.Drawing.Size(32, 21);
             this.종목리스트_페이지.TabIndex = 42;
-            this.종목리스트_페이지.TextChanged += new System.EventHandler(this.종목리스트_페이지_TextChanged);
+            this.종목리스트_페이지.KeyDown += new System.Windows.Forms.KeyEventHandler(this.종목리스트_페이지_KeyDown);
             this.종목리스트_페이지.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericCheck_KeyPress);
             // 
             // 종목리스트_최대페이지
